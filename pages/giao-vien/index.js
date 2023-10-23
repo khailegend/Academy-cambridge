@@ -4,10 +4,9 @@ import {Box, Container, Typography} from "@mui/material";
 import {teachers} from "@/constant";
 import Image from "next/image";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Card from "@mui/material/Card";
 
-export default function Tutor() {
+export default function TeacherPage() {
   return (
     <Box className="px-12 py-8">
       <Container
