@@ -22,9 +22,9 @@ const pages = [
   { name: 'Đăng ký khóa học', url: '/dang-ky-khoa-hoc' },
   {
     name: 'Giáo Viên',
-    url: '/tutor',
+    url: '/giao-vien',
   },
-  { name: 'Liên Hệ & FAQ', url: '/contact' },
+  { name: 'Liên Hệ & FAQ', url: '/lien-he' },
 ];
 
 function Header() {

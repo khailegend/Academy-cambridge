@@ -11,8 +11,6 @@ export default function Courses() {
   return (
     <Container maxWidth={false} sx={{ padding: '0!important' }}>
       <CambridgePrograms />
-      <Box className="w-full">
-      </Box>
     </Container>
   );
 }

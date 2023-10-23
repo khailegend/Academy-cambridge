@@ -260,4 +260,82 @@ export const grades = [
     nameVn: "Lớp 12",
     nameEn: "Grade 12",
   }
+];
+
+export const teachers = [
+  {
+    id: 1,
+    name: 'Anna Cherkasova',
+    url: '/images/teachers/anna-cherkasova.png',
+  },
+  {
+    id: 2,
+    name: 'Anna Osipova',
+    url: '/images/teachers/anna-osipova.png',
+  },
+  {
+    id: 3,
+    name: 'Nguyễn Thị Cao Trang',
+    url: '/images/teachers/nguyen-thi-cao-trang.png',
+  },
+  {
+    id: 4,
+    name: 'Ckroline',
+    url: '/images/teachers/ckroline.png',
+  },
+  {
+    id: 5,
+    name: 'Dương Thái Chân',
+    url: '/images/teachers/duong-thai-chan.png',
+  },
+  {
+    id: 6,
+    name: 'Hàn Lê Yến Nhi',
+    url: '/images/teachers/han-le-yen-nhi.png',
+  },
+  {
+    id: 7,
+    name: 'Le Pham Nhu Quynh',
+    url: '/images/teachers/le-pham-nhu-quynh.png',
+  },
+  {
+    id: 8,
+    name: 'Luong Ngoc Anh Phuong',
+    url: '/images/teachers/luong-ngoc-anh-phuong.png',
+  },
+  {
+    id: 9,
+    name: 'Nguyen Khac Hoang',
+    url: '/images/teachers/nguyen-khac-hoang.png',
+  },
+  {
+    id: 10,
+    name: 'Nguyen Ngoc Truc Ngan',
+    url: '/images/teachers/nguyen-ngoc-truc-ngan.png',
+  },
+  {
+    id: 11,
+    name: 'Pham Gia Thinh',
+    url: '/images/teachers/pham-gia-thinh.png',
+  },
+  {
+    id: 12,
+    name: 'Rayne',
+    url: '/images/teachers/rayne.png',
+  },
+  {
+    id: 13,
+    name: 'Rob',
+    url: '/images/teachers/rob.png',
+  },
+  {
+    id: 14,
+    name: 'Trương Gia Tue',
+    url: '/images/teachers/truong-gia-tue.png',
+  },
+  {
+    id: 15,
+    name: 'Vanessa',
+    url: '/images/teachers/vanessa.png',
+  }
 ]
