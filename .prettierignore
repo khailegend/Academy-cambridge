@@ -1,0 +1,10 @@
+{
+    "cli": {
+      "ignorePath": [
+        ".vscode/",
+        ".next",
+        "node_modules",
+        "dist"
+      ]
+    }
+}

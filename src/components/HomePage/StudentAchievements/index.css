@@ -1,0 +1,17 @@
+.student-achievement-pagination {
+  padding: 24px 0;
+}
+.student-achievement-pagination span {
+  background: black !important;
+}
+.custom-next-swiper.swiper-button-next:after,
+.custom-prev-swiper.swiper-button-prev:after {
+  font-size: 32px;
+}
+
+@media screen and (max-width: 768px) {
+  .custom-next-swiper,
+  .custom-prev-swiper {
+    display: none;
+  }
+}

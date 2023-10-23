@@ -1,0 +1,37 @@
+.card-header {
+  padding: 22px 0 14px 36px;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+}
+.magic-card-wrapper {
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.magic-card-wrapper .magic-card:first-child {
+  -webkit-box-shadow: 0 45px 0 0 #007ad8;
+  box-shadow: 0 45px 0 0 #007ad8;
+}
+
+.magic-card-wrapper .magic-card:nth-child(2) {
+  -webkit-box-shadow: 0 45px 0 0 #ffb84c;
+  box-shadow: 0 45px 0 0 #ffb84c;
+}
+
+.magic-card-wrapper .magic-card:nth-child(3) {
+  -webkit-box-shadow: 0 45px 0 0 #17249a;
+  box-shadow: 0 45px 0 0 #17249a;
+}
+
+.magic-card-active .card-header {
+  padding-bottom: 0;
+}
+.card-content.card-item-hide {
+  height: 0;
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+}
+.card-content {
+  -webkit-transition: all 0.5s ease-out;
+  transition: all 0.5s ease-out;
+  height: auto;
+}

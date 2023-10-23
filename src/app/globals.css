@@ -1,0 +1,74 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255; */
+  --ca-primary: #0C134F
+  --ca-secondary:  #E19F20
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0; */
+  }
+}
+
+p,body {
+  color: var(--ca-primary);
+  /* background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb)); */
+}
+html{
+  font-family: 'Nunito Sans', sans-serif;
+}
+.ca-primary-color{
+  color: #0C134F;
+}
+.ca-primary-bg-color{
+  background: #0C134F;
+}
+.ca-secondary-color{
+  color:  #E19F20;
+}
+.ca-secondary-bg-color{
+  background: #E19F20;
+}
+
+p{
+  margin: 0;
+}
+
+.has-sub-menu .menu{
+  flex-direction: column;
+  gap: 0;
+}
+.has-sub-menu .menu a{
+  padding: 12px 24px;
+    width: fit-content;
+    display: block;
+    min-width: 150px;
+}
+.feedback-carousel .swiper{
+  padding-bottom:24px;
+}
+
+
+.overlay-modal{
+  background: rgba(0,0,0,.667);
+}
+#menu-appbar ul{
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: white;
+}

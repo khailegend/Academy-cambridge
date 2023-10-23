@@ -1,0 +1,21 @@
+.item-content {
+    max-height: 0;
+    transition: max-height 0.15s ease-out;
+}
+.wrapper-item:hover .item-content{
+  max-height: 500px;
+  transition: max-height 0.25s ease-in;
+}
+.wrapper-item:hover .expand-more img{
+  display: none;
+}
+.wrapper-item:hover .no-expand svg{
+    display: block;
+}
+.no-expand svg{
+  width: 68px;
+  height: 68px;
+  margin: 0;
+  fill: #76adff;
+  display: none;
+}

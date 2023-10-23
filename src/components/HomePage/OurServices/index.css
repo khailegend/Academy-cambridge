@@ -1,0 +1,12 @@
+.ca-course-item{
+    /* transform: translateY(0); */
+}
+.ca-course:hover .ca-course-item{
+    transition: all .6s ease-in-out;
+    transform: translateY(-100%);
+}
+
+.ca-course:not(hover) .ca-course-item{
+    transition: all .6s ease-in-out;
+    transform: translateY(0);
+}
