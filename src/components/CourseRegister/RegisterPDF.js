@@ -253,6 +253,10 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
                     }
 
                     {
+                      parseInt(values.programId) === 2 && <IntegrateBilingualProgram />
+                    }
+
+                    {
                       parseInt(values.programId) === 3 && <CommonProgram />
                     }
 
@@ -261,16 +265,7 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
                      parseInt(values.programId) === 4 && <CertificateProgram />
                     }
 
-
-
-
-
                   </Box>
-
-
-
-                  {/*/!* {Tuổi Học Sinh} *!/*/}
-
 
                 </Box>
               ) : (
