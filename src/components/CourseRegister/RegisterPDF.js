@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import { Formik, Field, Form, ErrorMessage } from 'formik';
-import { handleGetPrograms } from '@/services/programsService';
-import { handleGetSchools } from '@/services/schoolService';
-// import { handleGetSubjectByProgram } from '@/services/subjectsService';
-import { handleGetRegistrationDetails } from '@/services/registrationDetailsService';
 import {
   Box,
   Checkbox,
@@ -23,66 +19,49 @@ import { handleRegistrationPDF } from '@/services/registrationService';
 import { hashGrades } from '@/libs/grades';
 import RegistrationSuccess from './RegistrationSuccess';
 import Loading from './Loading';
-import { get } from 'lodash';
 import { useRouter } from 'next/router';
+import {programs, schools} from "@/constant";
 const btnClass =
   'rounded-3xl py-3 px-6 font-extrabold mt-12 hover:bg-[#0C134F]';
 
 export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
-  const [programs, setPrograms] = useState([]);
-
-  const [schools, setSchools] = useState([]);
-
-  const [elements, setElements] = useState([]);
-
-  const [key, setKey] = useState('subjectIds');
-
   const [currentProgramId, setCurrentProgramId] = useState(null);
 
   const [open, setOpen] = useState(false);
+  const [key, setKey] = useState();
 
   const router = useRouter();
   const handleSetDefaultPrograms = (router) => {
     const tab = router.asPath;
     switch (tab) {
-      case '/khoa-hoc/chuong-trinh-pho-thong':
+      case '/khoa-hoc/chuong-trinh-cambridge':
         setCurrentProgramId(1);
         break;
-      case '/khoa-hoc/chuong-trinh-cambridge':
+
+      case '/khoa-hoc/luyen-thi-dau-vao':
         setCurrentProgramId(2);
         break;
-      case '/khoa-hoc/chung-chi-cambridge':
+
+      case '/khoa-hoc/chuong-trinh-pho-thong':
         setCurrentProgramId(3);
         break;
-      case '/khoa-hoc/luyen-thi-dau-vao':
+
+      case '/khoa-hoc/chung-chi-cambridge':
         setCurrentProgramId(4);
         break;
+
       default:
-        setCurrentProgramId(null);
+        setCurrentProgramId(1);
         break;
     }
   };
   useEffect(() => {
-    handleFetchData();
     handleSetDefaultPrograms(router);
   }, []);
-
-  useEffect(() => {
-    handleFetchSubjectByProgram(currentProgramId);
-  }, [currentProgramId]);
 
   const handleRenderSubjectByProgram = (id, setFieldValue) => {
     setCurrentProgramId(id);
     setFieldValue('subjects', []);
-  };
-
-  const handleFetchData = async () => {
-    let [programList, schoolList] = await Promise.all([
-      handleGetPrograms(),
-      handleGetSchools(),
-    ]);
-    setPrograms(get(programList, 'elements', []));
-    setSchools(get(schoolList, 'elements', []));
   };
 
   const initialValues = {
@@ -98,29 +77,21 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
     tutoringAddress: '',
   };
 
-  const handleFetchSubjectByProgram = async (programId) => {
-    if (programId) {
-      const { elements, key } = await handleGetRegistrationDetails(programId);
-      setElements(elements);
-      setKey(key);
-    } else {
-      return;
-    }
-  };
-
   const handleRenderButton = (values) => {
     let isValid = false;
 
     if (key === 'subjectIds') {
       isValid = values.programId && values.subjects.length && values.gradeId;
     } else {
-      isValid = values.programId && values.ageStudent && values[key];
+      isValid = values.programId && values.ageStudent;
     }
+
+    console.log('values', values, key)
 
     return (
       <Button
         className={` ${btnClass} ${
-          activeStep == 0 && isValid
+          activeStep === 0 && isValid
             ? 'ca-primary-bg-color text-white'
             : 'pointer-events-none cursor-not-allowed bg-gray-300 text-gray-100'
         }`}
@@ -160,23 +131,12 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
 
     setOpen(true);
 
-    handleRegistrationPDF(data)
-      .then((res) => {
-        if (res.message == 'success') {
-          handleNext();
-        } else {
-          alert(res.message);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      })
-      .finally(() => {
-        setOpen(false);
-      });
+    alert('ok');
+
+    setOpen(false);
   };
 
-  const renderValidatationSchema = () => {
+  const renderValidationSchema = () => {
     let validation = {
       programId: Yup.string().required('Vui lòng chọn chương trình học'),
       nameP: Yup.string('Vui lòng nhập tên').required('Vui lòng nhập tên'),
@@ -186,6 +146,7 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
       phoneNoP: Yup.string()
         .matches(phoneRegExp, 'Số điện thoại không hợp lệ')
         .required('Vui lòng nhập số điện thoại'),
+
     };
 
     if (key === 'subjectIds') {
@@ -230,7 +191,7 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
         className="w-full"
         initialValues={initialValues}
         enableReinitialize
-        validationSchema={() => renderValidatationSchema()}
+        validationSchema={() => renderValidationSchema()}
         onSubmit={async (values) => {
           handleSubmitForm(values);
         }}
@@ -238,7 +199,7 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
         {({ values, errors, touched, setFieldValue, isValid }) => (
           <Form>
             <Box>
-              {activeStep == 0 ? (
+              {activeStep === 0 ? (
                 <Box className="flex flex-col gap-8">
                   <Box className="flex flex-col gap-8">
                     <Typography className="font-extrabold text-lg" variant="h6">
@@ -423,7 +384,7 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
 
                   {/* {Tuổi Học Sinh} */}
 
-                  {key != 'subjectIds' && (
+                  {key !== 'subjectIds' && (
                     <>
                       <Box className="flex flex-col justify-start gap-2 md:flex-row md:items-center md:gap-8">
                         <Typography
@@ -458,14 +419,14 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
                   )}
 
                   <Box className="flex flex-col justify-start gap-2 md:flex-row md:items-center md:gap-8">
-                    <Field name="schooId">
+                    <Field name="schoolId">
                       {({ field, form }) => (
                         <>
                           <Typography
                             variant="h6"
                             className="whitespace-nowrap text-lg font-extrabold"
                           >
-                            Có nguyện vọng thi đầu vào Trường:
+                            Có nguyện vọng thi đậu vào Trường:
                           </Typography>
                           <FormControl name="schools" fullWidth>
                             <Select
@@ -477,6 +438,9 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
                               error={
                                 form.errors.program && form.touched.program
                               }
+                              onChange={(e) => {
+                                field.onChange(e);
+                              }}
                             >
                               {schools.map((school) => (
                                 <MenuItem key={school.id} value={school.id}>
@@ -498,9 +462,9 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
               ) : (
                 ''
               )}
-              {activeStep == 1 ? (
+              {activeStep === 1 ? (
                 <Box
-                  className={`flex flex-col ${activeStep == 1 ? '' : 'hidden'}`}
+                  className={`flex flex-col ${activeStep === 1 ? '' : 'hidden'}`}
                 >
                   <Typography className="font-extrabold text-lg" variant="h6">
                     Thông tin liên hệ

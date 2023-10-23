@@ -1,29 +1,28 @@
 export const programs = [
   {
+    id: 1,
+    nameVn: "Quốc Tế / Cambridge",
+    nameEn: "Cambridge",
+    description: "Chương trình giáo dục Quốc Tế Cambridge được thiết kế và phát triển theo đúng chuẩn của trường Đại học Cambridge (Top 1 Anh Quốc)."
+  },
+  {
+    id: 2,
+    nameVn: "Chương Trình Tích Hợp / song ngữ",
+    nameEn: "Integration",
+    description: "Chương trình giáo dục Tích Hợp được thiết kế và phát triển theo đúng chuẩn của trường Đại học Cambridge (Top 1 Anh Quốc) và bộ giáo dục đào tạo.",
+  },
+  {
+    id: 3,
     nameVn: "Giáo Dục Phổ Thông",
     nameEn: "Standard",
     description: "Chương trình giáo dục phổ thông được thiết kế và phát triển theo đúng chuẩn của bộ giáo dục và đào tạo."
   },
   {
-    nameVn: "Quốc Tế Cambridge",
-    nameEn: "Cambridge",
-    description: "Chương trình giáo dục Quốc Tế Cambridge được thiết kế và phát triển theo đúng chuẩn của trường Đại học Cambridge (Top 1 Anh Quốc)."
-  },
-  {
-    nameVn: "Chương Trình Tích Hợp",
-    nameEn: "Integration",
-    description: "Chương trình giáo dục Tích Hợp được thiết kế và phát triển theo đúng chuẩn của trường Đại học Cambridge (Top 1 Anh Quốc) và bộ giáo dục đào tạo.",
-  },
-  {
+    id: 4,
     nameVn: "Luyện Thi Chứng Chỉ",
     nameEn: "Test preparation For Certificate",
     description: "Luyện thi chứng chỉ hỗ trợ cho các bé về tài liệu cũng như các phương pháp mà các bé sẽ làm trong kì thi"
   },
-  {
-    nameVn: "Luyện Thi Trường Giỏi",
-    nameEn: "Test preparation For Top School",
-    description: "Luyện thi trường giỏi hỗ trợ cho các bé về tài liệu cũng như các phương pháp mà các bé sẽ làm trong kì thi"
-  }
 ]
 
 export const certificates = [
@@ -100,26 +99,31 @@ export const certificates = [
 
 export const schools = [
   {
+    id: 1,
     nameVn: "Trường Quốc Tế Vinschool",
     nameEn: "Vin International School",
     code: "VS"
   },
   {
+    id: 2,
     nameVn: "Trường Quốc Tế Anh",
     nameEn: "British International School",
     code: "BIS"
   },
   {
+    id: 3,
     nameVn: "Trường Quốc Tế Anh Việt",
     nameEn: "British Vietnamese International School",
     code: "BVIS"
   },
   {
+    id: 4,
     nameVn: "Trường Phổ thông Song ngữ Quốc tế Wellspring",
     nameEn: "Wellspring International Bilingual School",
     code: "Wellspring"
   },
   {
+    id: 5,
     nameVn: "Trường Quốc Tế eSchool",
     nameEn: "A Boutique Village School",
     code: "eSchool"
