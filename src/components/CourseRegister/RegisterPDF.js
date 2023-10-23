@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import React, {useEffect, useState} from 'react';
 import Button from '@mui/material/Button';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import {Formik, Field, Form, ErrorMessage} from 'formik';
 import {
   Box,
   Checkbox,
@@ -14,17 +14,17 @@ import {
   Typography,
 } from '@mui/material';
 import * as Yup from 'yup';
-import { phoneRegExp, grades } from '@/libs/common';
-import { handleRegistrationPDF } from '@/services/registrationService';
-import { hashGrades } from '@/libs/grades';
+import {phoneRegExp, grades} from '@/libs/common';
+import {hashGrades} from '@/libs/grades';
 import RegistrationSuccess from './RegistrationSuccess';
 import Loading from './Loading';
-import { useRouter } from 'next/router';
-import {programs, schools} from "@/constant";
+import {useRouter} from 'next/router';
+import {certificates, commonSubjects, foreignAndCambridgeSubjects, programs, schools} from "@/constant";
+
 const btnClass =
   'rounded-3xl py-3 px-6 font-extrabold mt-12 hover:bg-[#0C134F]';
 
-export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
+export default function RegisterPDF({activeStep, handleNext, handleBack}) {
   const [currentProgramId, setCurrentProgramId] = useState(null);
 
   const [open, setOpen] = useState(false);
@@ -61,6 +61,7 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
 
   const handleRenderSubjectByProgram = (id, setFieldValue) => {
     setCurrentProgramId(id);
+    console.log('update', currentProgramId)
     setFieldValue('subjects', []);
   };
 
@@ -186,7 +187,7 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
 
   return (
     <>
-      <Loading open={open} />
+      <Loading open={open}/>
       <Formik
         className="w-full"
         initialValues={initialValues}
@@ -196,7 +197,7 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
           handleSubmitForm(values);
         }}
       >
-        {({ values, errors, touched, setFieldValue, isValid }) => (
+        {({values, errors, touched, setFieldValue, isValid}) => (
           <Form>
             <Box>
               {activeStep === 0 ? (
@@ -205,9 +206,9 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
                     <Typography className="font-extrabold text-lg" variant="h6">
                       Chọn chương trình:
                     </Typography>
-                    <Box>
+                  <Box>
                       <Field name="programId">
-                        {({ field }) => (
+                        {({field}) => (
                           <RadioGroup
                             name={field.name}
                             value={field.value}
@@ -246,218 +247,31 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
                         name="programId"
                       />
                     </Box>
-                    <Box>
-                      {key === 'subjectIds' && (
-                        <Typography
-                          className="font-extrabold text-lg"
-                          variant="h6"
-                        >
-                          Chọn môn học:
-                        </Typography>
-                      )}
-                      <Box className="flex flex-col justify-center">
-                        {key === 'subjectIds' && (
-                          <>
-                            <Box className="flex flex-col justify-start md:flex-row md:justify-around">
-                              {elements.map((item) => {
-                                return (
-                                  <FormControlLabel
-                                    key={`${key}_${item.id}`}
-                                    className="flex whitespace-nowrap"
-                                    control={
-                                      <Field
-                                        type="checkbox"
-                                        name="subjects"
-                                        value={String(item.id)}
-                                        sx={{
-                                          '&.Mui-checked': {
-                                            color: '#0C134F',
-                                          },
-                                        }}
-                                        as={Checkbox}
-                                      />
-                                    }
-                                    label={item.nameVn}
-                                  />
-                                );
-                              })}
-                            </Box>
-                            <ErrorMessage
-                              component="div"
-                              className="text-red-500"
-                              name="subjects"
-                            />
-                          </>
-                        )}
-                        {key === 'certificateId' && (
-                          <>
-                            <Box className="flex flex-col justify-start gap-2 md:flex-row md:items-center md:gap-8">
-                              <Field name={`${key}`}>
-                                {({ field, form }) => (
-                                  <>
-                                    <Typography
-                                      variant="h6"
-                                      className="whitespace-nowrap text-lg font-extrabold"
-                                    >
-                                      Chọn Chứng Chỉ:
-                                    </Typography>
-                                    <FormControl name="certificates" fullWidth>
-                                      <Select
-                                        {...field}
-                                        labelId="certificateId"
-                                        id="certificateId"
-                                        name="certificateId"
-                                        className="w-full md:w-[150px] h-8 border"
-                                        error={
-                                          form.errors.program &&
-                                          form.touched.program
-                                        }
-                                      >
-                                        {elements.map((item) => (
-                                          <MenuItem
-                                            key={`${key}_${item.id}`}
-                                            value={item.id}
-                                          >
-                                            {item.code ?? item.shortCode}
-                                          </MenuItem>
-                                        ))}
-                                      </Select>
-                                    </FormControl>
-                                  </>
-                                )}
-                              </Field>
-                              <ErrorMessage
-                                name="certificateId"
-                                className="text-red-500"
-                                component="div"
-                              />
-                            </Box>
-                          </>
-                        )}
-                      </Box>
-                    </Box>
+
+                    {
+                     parseInt(values.programId) === 1 && <ForeignAndCambridgeProgram />
+                    }
+
+                    {
+                      parseInt(values.programId) === 3 && <CommonProgram />
+                    }
+
+
+                    {
+                     parseInt(values.programId) === 4 && <CertificateProgram />
+                    }
+
+
+
+
+
                   </Box>
 
-                  {/* Chọn Lớp Học */}
-                  {key === 'subjectIds' && (
-                    <>
-                      <Box className="flex flex-col justify-start gap-2 md:flex-row md:items-center md:gap-8">
-                        <Field name="gradeId">
-                          {({ field, form }) => (
-                            <>
-                              <Typography
-                                variant="h6"
-                                className="whitespace-nowrap text-lg font-extrabold"
-                              >
-                                Chọn lớp học:
-                              </Typography>
-                              <FormControl name="ok" fullWidth>
-                                <Select
-                                  {...field}
-                                  labelId="grade"
-                                  id="gradeId"
-                                  name="gradeId"
-                                  className="w-full md:w-[150px] h-8 border"
-                                  error={
-                                    form.errors.program && form.touched.program
-                                  }
-                                >
-                                  {grades.map((grade) => (
-                                    <MenuItem key={grade.id} value={grade.id}>
-                                      {hashGrades(grade.id)}
-                                    </MenuItem>
-                                  ))}
-                                </Select>
-                              </FormControl>
-                            </>
-                          )}
-                        </Field>
-                        <ErrorMessage
-                          name="gradeId"
-                          className="text-red-500"
-                          component="div"
-                        />
-                      </Box>
-                    </>
-                  )}
-                  {/* Kết Thúc Chọn Lớp Học */}
 
-                  {/* {Tuổi Học Sinh} */}
 
-                  {key !== 'subjectIds' && (
-                    <>
-                      <Box className="flex flex-col justify-start gap-2 md:flex-row md:items-center md:gap-8">
-                        <Typography
-                          variant="h6"
-                          className="whitespace-nowrap text-lg font-extrabold"
-                        >
-                          Độ tuổi của học viên:{' '}
-                        </Typography>
+                  {/*/!* {Tuổi Học Sinh} *!/*/}
 
-                        <Field name="ageStudent">
-                          {({ field, form }) => (
-                            <TextField
-                              {...field}
-                              type="number"
-                              inputProps={{
-                                style: {
-                                  color: '#0c134f',
-                                  padding: '3px 0px 3px 5px',
-                                },
-                              }}
-                            />
-                          )}
-                        </Field>
 
-                        <ErrorMessage
-                          name="ageStudent"
-                          className="text-red-500"
-                          component="div"
-                        />
-                      </Box>
-                    </>
-                  )}
-
-                  <Box className="flex flex-col justify-start gap-2 md:flex-row md:items-center md:gap-8">
-                    <Field name="schoolId">
-                      {({ field, form }) => (
-                        <>
-                          <Typography
-                            variant="h6"
-                            className="whitespace-nowrap text-lg font-extrabold"
-                          >
-                            Có nguyện vọng thi đậu vào Trường:
-                          </Typography>
-                          <FormControl name="schools" fullWidth>
-                            <Select
-                              {...field}
-                              labelId="grade"
-                              id="schoolId"
-                              name="schoolId"
-                              className="w-full md:w-[220px] h-8 border"
-                              error={
-                                form.errors.program && form.touched.program
-                              }
-                              onChange={(e) => {
-                                field.onChange(e);
-                              }}
-                            >
-                              {schools.map((school) => (
-                                <MenuItem key={school.id} value={school.id}>
-                                  {school.code}
-                                </MenuItem>
-                              ))}
-                            </Select>
-                          </FormControl>
-                        </>
-                      )}
-                    </Field>
-                    <ErrorMessage
-                      name="schoolId"
-                      className="text-red-500"
-                      component="div"
-                    />
-                  </Box>
                 </Box>
               ) : (
                 ''
@@ -471,7 +285,7 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
                   </Typography>
                   <Typography className="my-2">Vui lòng nhập tên</Typography>
                   <Field name="nameP">
-                    {({ field, form }) => (
+                    {({field, form}) => (
                       <TextField
                         {...field}
                         label="Họ và tên"
@@ -489,7 +303,7 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
 
                   <Typography className="my-2">Vui lòng nhập email</Typography>
                   <Field name="emailP">
-                    {({ field, form }) => (
+                    {({field, form}) => (
                       <TextField
                         {...field}
                         label="ca@gmail.com"
@@ -505,7 +319,7 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
 
                   <Typography className="my-2">Vui lòng nhập SDT</Typography>
                   <Field name="phoneNoP">
-                    {({ field, form }) => (
+                    {({field, form}) => (
                       <TextField
                         {...field}
                         label="Số điện thoại"
@@ -529,7 +343,7 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
                     Vui lòng nhập địa chỉ nếu có nhu cầu học tại nhà
                   </Typography>
                   <Field name="tutoringAddress">
-                    {({ field, form }) => (
+                    {({field, form}) => (
                       <TextField
                         {...field}
                         label="Địa chỉ học tại nhà"
@@ -547,7 +361,7 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
               ) : (
                 ''
               )}
-              {activeStep >= 2 ? <RegistrationSuccess /> : ''}
+              {activeStep >= 2 ? <RegistrationSuccess/> : ''}
             </Box>
             <Box className="flex justify-center">
               {/* {activeStep != 0 && activeStep != 2 ? (
@@ -576,6 +390,259 @@ export default function RegisterPDF({ activeStep, handleNext, handleBack }) {
           </Form>
         )}
       </Formik>
+    </>
+  );
+}
+
+const CommonProgram = () => {
+  return (
+    <>
+      <Box>
+        <Typography
+          className="font-extrabold text-lg"
+          variant="h6"
+        >
+          Chọn môn học:
+        </Typography>
+        <Box className="flex flex-col justify-center">
+          <Box className="flex flex-col justify-start md:flex-row md:justify-around">
+            {commonSubjects.map((item) => {
+              return (
+                <FormControlLabel
+                  key={`foreignAndCambridge_${item.id}`}
+                  className="flex whitespace-nowrap"
+                  control={
+                    <Field
+                      type="checkbox"
+                      name="subjects"
+                      value={String(item.id)}
+                      sx={{
+                        '&.Mui-checked': {
+                          color: '#0C134F',
+                        },
+                      }}
+                      as={Checkbox}
+                    />
+                  }
+                  label={item.nameVn}
+                />
+              );
+            })}
+          </Box>
+          <ErrorMessage
+            component="div"
+            className="text-red-500"
+            name="subjects"
+          />
+        </Box>
+      </Box>
+
+      <Box className="flex flex-col justify-start gap-2 md:flex-row md:items-center md:gap-8">
+        <Field name="gradeId">
+          {({field, form}) => (
+            <>
+              <Typography
+                variant="h6"
+                className="whitespace-nowrap text-lg font-extrabold"
+              >
+                Chọn lớp học:
+              </Typography>
+              <FormControl name="ok" fullWidth>
+                <Select
+                  {...field}
+                  labelId="grade"
+                  id="gradeId"
+                  name="gradeId"
+                  className="w-full md:w-[150px] h-8 border"
+                  error={
+                    form.errors.program && form.touched.program
+                  }
+                >
+                  {grades.map((grade) => (
+                    <MenuItem key={grade.id} value={grade.id}>
+                      {hashGrades(grade.id)}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </>
+          )}
+        </Field>
+        <ErrorMessage
+          name="gradeId"
+          className="text-red-500"
+          component="div"
+        />
+      </Box>
+    </>
+
+  )
+}
+
+const IntegrateBilingualProgram = () => {
+
+}
+
+
+const ForeignAndCambridgeProgram = () => {
+  return (
+    <>
+      <Box>
+        <Typography
+          className="font-extrabold text-lg"
+          variant="h6"
+        >
+          Chọn môn học:
+        </Typography>
+        <Box className="flex flex-col justify-center">
+          <Box className="flex flex-col justify-start md:flex-row md:justify-around">
+            {foreignAndCambridgeSubjects.map((item) => {
+              return (
+                <FormControlLabel
+                  key={`foreignAndCambridge_${item.id}`}
+                  className="flex whitespace-nowrap"
+                  control={
+                    <Field
+                      type="checkbox"
+                      name="subjects"
+                      value={String(item.id)}
+                      sx={{
+                        '&.Mui-checked': {
+                          color: '#0C134F',
+                        },
+                      }}
+                      as={Checkbox}
+                    />
+                  }
+                  label={item.nameVn}
+                />
+              );
+            })}
+          </Box>
+          <ErrorMessage
+            component="div"
+            className="text-red-500"
+            name="subjects"
+          />
+        </Box>
+      </Box>
+
+      <Box className="flex flex-col justify-start gap-2 md:flex-row md:items-center md:gap-8">
+        <Field name="gradeId">
+          {({field, form}) => (
+            <>
+              <Typography
+                variant="h6"
+                className="whitespace-nowrap text-lg font-extrabold"
+              >
+                Chọn lớp học:
+              </Typography>
+              <FormControl name="ok" fullWidth>
+                <Select
+                  {...field}
+                  labelId="grade"
+                  id="gradeId"
+                  name="gradeId"
+                  className="w-full md:w-[150px] h-8 border"
+                  error={
+                    form.errors.program && form.touched.program
+                  }
+                >
+                  {grades.map((grade) => (
+                    <MenuItem key={grade.id} value={grade.id}>
+                      {hashGrades(grade.id)}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </>
+          )}
+        </Field>
+        <ErrorMessage
+          name="gradeId"
+          className="text-red-500"
+          component="div"
+        />
+      </Box>
+    </>
+
+  )
+}
+
+const CertificateProgram = () => {
+  return (
+    <>
+      <Box className="flex flex-col justify-start gap-2 md:flex-row md:items-center md:gap-8">
+        <Typography
+          variant="h6"
+          className="whitespace-nowrap text-lg font-extrabold"
+        >
+          Độ tuổi của học viên:{' '}
+        </Typography>
+
+        <Field name="ageStudent">
+          {({field, form}) => (
+            <TextField
+              {...field}
+              type="number"
+              inputProps={{
+                style: {
+                  color: '#0c134f',
+                  padding: '3px 0px 3px 5px',
+                },
+              }}
+            />
+          )}
+        </Field>
+
+        <ErrorMessage
+          name="ageStudent"
+          className="text-red-500"
+          component="div"
+        />
+      </Box>
+
+      <Box className="flex flex-col justify-start gap-2 md:flex-row md:items-center md:gap-8">
+        <Field name={`certificateId`}>
+          {({field, form}) => (
+            <>
+              <Typography
+                variant="h6"
+                className="whitespace-nowrap text-lg font-extrabold"
+              >
+                Chọn Chứng Chỉ:
+              </Typography>
+              <FormControl name="certificates" fullWidth>
+                <Select
+                  {...field}
+                  labelId="certificateId"
+                  id="certificateId"
+                  name="certificateId"
+                  className="w-full md:w-[150px] h-8 border"
+                  error={
+                    form.errors.program &&
+                    form.touched.program
+                  }
+                >
+                  {certificates.map((item) => (
+                    <MenuItem
+                      key={`${certificates}_${item.id}`}
+                      value={item.id}
+                    >
+                      {item.code ?? item.shortCode}
+                    </MenuItem>
+                  ))}
+                </Select>
+              </FormControl>
+            </>
+          )}
+        </Field>
+        <ErrorMessage
+          name="certificateId"
+          className="text-red-500"
+          component="div"
+        />
+      </Box>
     </>
   );
 }
