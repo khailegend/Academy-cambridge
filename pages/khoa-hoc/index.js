@@ -1,5 +1,4 @@
 import { Box, Container } from '@mui/material';
-import Image from 'next/image';
 import React from 'react';
 import CoursesLayout from '@/components/Courses/CoursesLayout';
 import CambridgeCertification from './chung-chi-cambridge';
@@ -13,9 +12,7 @@ export default function Courses() {
     <Container maxWidth={false} sx={{ padding: '0!important' }}>
       <CambridgePrograms />
       <Box className="w-full">
-        
       </Box>
-      <Box></Box>
     </Container>
   );
 }

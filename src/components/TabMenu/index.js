@@ -5,6 +5,7 @@ import Tab from '@mui/material/Tab';
 import Box from '@mui/material/Box';
 import { createTheme, ThemeProvider, Typography } from '@mui/material';
 import MenuTabsMB from './MenuTabsMb';
+import AppBar from "@mui/material/AppBar";
 
 const customTheme = createTheme({
   components: {
@@ -64,12 +65,15 @@ const MenuTabs = () => {
       router.push(`/khoa-hoc/chuong-trinh-cambridge`, undefined, {
         shallow: true,
       });
+    } else {
+      const el = document.getElementById('menu-tabs');
+      el.scrollIntoView(true);
     }
   }, []);
   return (
-    <Box sx={{ width: '100%', padding: '24px 0' }}>
+    <AppBar sx={{ width: '100%', padding: '24px 0' }} className="bg-white top-14 sticky" id="menu-tabs">
       <ThemeProvider theme={customTheme}>
-        <Box className="hidden lg:flex justify-center gap-8 overflow-auto">
+        <Box className="hidden lg:flex justify-center gap-8">
           {tabs.map((tab) => (
             <Tab
               sx={{ width: 315, padding: '24px' }}
@@ -114,7 +118,7 @@ const MenuTabs = () => {
           </MenuTabsMB>
         </Box>
       </ThemeProvider>
-    </Box>
+    </AppBar>
   );
 };
 
