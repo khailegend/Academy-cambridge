@@ -20,11 +20,18 @@ const Tag = styled.div`
 
 export default function SchoolItem({ school }) {
   return (
-    <Card className="group w-full md:w-[275px]">
+    <Card className="group w-full">
       <CardMedia
         sx={{
-          width: 275,
-          height: 207,
+          width: '100%',
+          height: 200,
+          '@media (max-width: 600px)': {
+            width: '100%',
+          },
+        }}
+        md={{
+          width: '100%',
+          height: 360,
           '@media (max-width: 600px)': {
             width: '100%',
           },

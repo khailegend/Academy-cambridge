@@ -1,17 +1,15 @@
-import { Box, Container } from '@mui/material';
-import Image from 'next/image';
 import React from 'react';
 import SchoolItem from './SchoolItem';
+import Grid from "@mui/material/Grid";
 
 export default function SchoolList({ schools }) {
   return (
-    <Container
-      maxWidth={false}
-      className="flex flex-wrap justify-between gap-y-8"
-    >
+    <Grid container spacing={{ xs: 2, md: 3, lg: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
       {schools.map((school, index) => (
-        <SchoolItem key={index} school={school} />
+        <Grid item xs={4} sm={4} md={3} key={index}>
+          <SchoolItem key={index} school={school} />
+        </Grid>
       ))}
-    </Container>
+    </Grid>
   );
 }
