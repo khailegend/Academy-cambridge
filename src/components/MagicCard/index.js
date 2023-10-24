@@ -23,7 +23,7 @@ export default function ControlledAccordions() {
     <Container maxWidth="lg" className="px-0 py-12 md:p-auto">
       <Box className="flex flex-col-reverse md:flex-row justify-between items-start gap-x-12 py-12 border-none">
         <div
-          className="magic-cards w-1/2"
+          className="magic-cards xs:w-full md:2/3 lg:w-1/2 p-5"
         >
           {
             data.map((item, index) => {
@@ -96,7 +96,7 @@ export default function ControlledAccordions() {
           }
         </div>
 
-        <Box className="hidden md:flex justify-center items-center">
+        <Box className="hidden sm:flex justify-center items-center">
           <Image
             src="/images/magic-card-bg.jpeg"
             width={582}
