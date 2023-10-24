@@ -1,0 +1,36 @@
+# Allow all crawling
+User-agent: *
+Allow: /
+
+# Block common directories
+Disallow: /out/
+Disallow: /.next/
+Disallow: /node_modules/
+
+# Block potential sensitive files
+Disallow: /README.md
+Disallow: /CHANGELOG.md
+Disallow: /LICENSE
+Disallow: /codegen.config.js
+
+# Block user-specific pages
+Disallow: /profile
+Disallow: /dashboard
+
+# Allow indexing of sitemaps
+Allow: /sitemap.xml
+Allow: /sitemap-*.xml
+
+# Crawl-delay for bots
+User-agent: *
+Crawl-delay: 10
+
+# Normal crawl rate for major search engines
+User-agent: Googlebot
+Crawl-delay: 1
+
+User-agent: Bingbot
+Crawl-delay: 1
+
+# Sitemap location
+Sitemap: https://www.example.com/sitemap.xml

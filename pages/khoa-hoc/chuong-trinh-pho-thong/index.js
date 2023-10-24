@@ -6,6 +6,7 @@ import { schoolListLogo, standardSchoolListLogo } from '@/libs/common';
 import { Box, Container, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
+import {NextSeo} from "next-seo";
 
 const data1 = [
   'Học kèm 1-1 cùng với Gia sư giàu kinh nghiệm',
@@ -26,6 +27,11 @@ const data2 = [
 export default function StandardPrograms() {
   return (
     <CoursesLayout>
+      <NextSeo
+        title="Chương trình phổ thông tại Cambridge Academy"
+        description="CAMBRIDGE ACADEMY - cùng học sinh chinh phục từng cột mốc tri thức"
+      />
+
       <LogoSlider list={standardSchoolListLogo} />
       <Box className="text-center pt-12 pb-24">
         <CASectionTitle

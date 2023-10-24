@@ -14,6 +14,7 @@ import SecondaryCheckpoint from '@/components/Courses/CambridgeProgram/Secondary
 import IGCSE from '@/components/Courses/CambridgeProgram/IGCSE';
 import Blogs from '@/common/BlogItem/Blogs';
 import { schoolListLogo } from '@/libs/common';
+import {NextSeo} from "next-seo";
 const QuestionIcon = (props) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
@@ -46,6 +47,11 @@ const QuestionIcon = (props) => (
 export default function CambridgePrograms() {
   return (
     <CoursesLayout>
+      <NextSeo
+        title="Chương trình Quốc Tế / Cambridge tại Cambridge Academy"
+        description="CAMBRIDGE ACADEMY - cùng học sinh chinh phục từng cột mốc tri thức"
+      />
+
       <LogoSlider list={schoolListLogo} />
       <Box className="text-center py-24">
         <CASectionTitle label="Chương trình học chuẩn quốc tế" />
