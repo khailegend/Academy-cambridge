@@ -13,7 +13,7 @@ export default function Index() {
       </Head>
 
       <NextSeo
-        title="Cambridge Academy"
+        title="Cambridge Academy - Where learning takes flight"
         description="CAMBRIDGE ACADEMY - cùng học sinh chinh phục từng cột mốc tri thức"
       />
 
