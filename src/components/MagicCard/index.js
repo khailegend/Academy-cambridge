@@ -1,45 +1,101 @@
 import React from 'react';
 import CardItem from './CardItem';
-import { Box, Container } from '@mui/material';
+import {Accordion, AccordionSummary, Box, Container, Typography} from '@mui/material';
 import Image from 'next/image';
-import { magicCardContent as data } from '@/libs/common';
+import './index.css';
+import { magicCardContent as data } from '@/libs/common'
 
-export default function MagicCard() {
-  function handleClick(id) {
-    const allEl = document.querySelectorAll('.card-content');
-    const el = document.querySelector(`#card-item-${id}`);
-    const child = el.querySelector('.card-content');
+export default function ControlledAccordions() {
+  const [expanded, setExpanded] = React.useState(false);
 
-    const allCard = document.querySelectorAll('.magic-card');
-    console.log(allCard);
-    allCard.forEach((item, index) => {
-      item.classList.remove('magic-card-active');
-    });
-    el.classList.add('magic-card-active');
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
 
-    allEl.forEach((item, index) => {
-      item.classList.add('card-item-hide');
-    });
-    child.classList.remove('card-item-hide');
+  const bgColor = {
+    0: '',
+    1: '#007AD8',
+    2: '#FFB84C',
+    3: '#17249A',
   }
 
   return (
     <Container maxWidth="lg" className="px-0 py-12 md:p-auto">
-      <Box className="flex flex-col-reverse md:flex-row justify-between items-start gap-x-12 py-12">
-        <Box className="magic-card-wrapper">
-          {data.map((item, index) => {
-            return (
-              <CardItem
-                key={item.id}
-                index={index}
-                props={item}
-                handleClick={handleClick}
-                style={{ position: 'relative', top: '-30px' }}
-                className="relative"
-              />
-            );
-          })}
-        </Box>
+      <Box className="flex flex-col-reverse md:flex-row justify-between items-start gap-x-12 py-12 border-none">
+        <div
+          className="magic-cards w-1/2"
+        >
+          {
+            data.map((item, index) => {
+              return (
+                <Accordion
+                  sx={{
+                    border: 'none',
+                    background: bgColor[`${index}`],
+                    borderRadius: index === 3 ? '0 0 50px 50px' : ''
+                }}
+                  key={index} expanded={expanded === `panel${index}`} onChange={handleChange(`panel${index}`)}
+                >
+
+                  <AccordionSummary
+                    aria-controls={`panel${index}d-content`} id={`panel${index}d-header`}
+                    className={`flex items-center gap-2`}
+                    sx={{
+                      background: item.backgroundColor,
+                      border: 'none',
+                      transition: (index === 3 && expanded === 'panel3') ? '' : '0.9s !important',
+                      borderRadius: (index === 3 && expanded !== 'panel3') ? '50px 50px' : '50px 50px 0 0',
+                      padding: '20px 36px'
+                    }}
+                  >
+                    <Box
+                      sx={{ width: 45, height: 45, border: 'none',  }}
+                      className="flex justify-center items-center"
+                    >
+                      <Image src={item.img} width={35} height={35} alt={item.title} />
+                    </Box>
+                    <Typography
+                      sx={{
+                        color: item.textColor,
+                        fontSize: '18px',
+                        '@media (min-width:768px)': {
+                          fontSize: '30px',
+                        },
+                        lineHeight: '40px',
+                        marginBottom: 0,
+                        border: 'none',
+                      }}
+                      className="font-extrabold"
+                      gutterBottom
+                    >
+                      {item.title}
+                    </Typography>
+
+                  </AccordionSummary>
+
+                  <div className='border-none'>
+                    <Typography
+                      variant="h5"
+                      component="div"
+                      sx={{
+                        color:  item.textColor,
+                        fontSize: 18,
+                        background:item.backgroundColor,
+                        padding: '20px 36px',
+                        margin: 0,
+                        border: 'none',
+                        borderRadius: index === 3 ? '0 0 50px 50px' : ''
+                      }}
+                    >
+                      {item.content}
+                    </Typography>
+                  </div>
+                </Accordion>
+              )
+            })
+          }
+        </div>
+
         <Box className="hidden md:flex justify-center items-center">
           <Image
             src="/images/magic-card-bg.jpeg"
@@ -50,5 +106,5 @@ export default function MagicCard() {
         </Box>
       </Box>
     </Container>
-  );
-}
+    );
+};
