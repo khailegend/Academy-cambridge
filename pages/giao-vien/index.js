@@ -5,10 +5,16 @@ import CardContent from "@mui/material/CardContent";
 import Grid from "@mui/material/Grid";
 import {teachers} from "@/constant";
 import Image from "next/image";
+import {NextSeo} from "next-seo";
 
 export default function TeacherPage() {
   return (
     <Container maxWidth={false} sx={{ padding: '0!important' }}>
+      <NextSeo
+        title="Giáo viên tại Cambridge Academy"
+        description="CAMBRIDGE ACADEMY - cùng học sinh chinh phục từng cột mốc tri thức"
+      />
+
       <Box className="px-12 py-8">
         <Container
           maxWidth={false}

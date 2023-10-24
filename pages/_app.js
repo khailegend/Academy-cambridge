@@ -37,7 +37,7 @@ export default function MyApp(props) {
               locale: 'vi_VN',
               url: 'https://www.cambridge-academy.edu.vn',
               siteName: 'SiteName',
-              title: 'Cambridge Academy',
+              title: 'Cambridge Academy - Where learning takes flight',
               description: 'CAMBRIDGE ACADEMY - cùng học sinh chinh phục từng cột mốc tri thức',
               images: [
                 {
@@ -70,7 +70,11 @@ export default function MyApp(props) {
               site: '@site',
               cardType: 'summary_large_image',
             }}
-
+            instagram={{
+              handle: '@handle',
+              site: '@site',
+              cardType: 'summary_large_image',
+            }}
           />
 
           <Component {...pageProps} />
