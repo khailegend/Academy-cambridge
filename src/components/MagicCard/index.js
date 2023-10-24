@@ -20,8 +20,8 @@ export default function ControlledAccordions() {
   }
 
   return (
-    <Container maxWidth="lg" className="px-0 py-12 md:p-auto">
-      <Box className="flex flex-col-reverse md:flex-row justify-between items-start gap-x-12 py-12 border-none">
+    <Container maxWidth="lg" className="px-0 md:p-auto">
+      <Box className="flex flex-col-reverse md:flex-row justify-between items-start gap-x-12 border-none">
         <div
           className="magic-cards xs:w-full md:2/3 lg:w-1/2 p-5"
         >

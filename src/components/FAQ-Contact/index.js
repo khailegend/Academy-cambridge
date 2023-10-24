@@ -8,9 +8,9 @@ import { FAQQuestion as defaultQuestion } from '@/libs/common';
 export default function FAQAndContact() {
   return (
     <Container maxWidth={false}>
-      <Container maxWidth="lg" className="py-12">
+      <Container maxWidth="lg">
         <Grid container>
-          <Grid item md={6} className="mt-12">
+          <Grid item md={6} className="mt-12 hidden md:block">
             <Image src="/images/faqs.png" width={530} height={425} alt="FAQ" />
           </Grid>
           <Grid item md={6}>

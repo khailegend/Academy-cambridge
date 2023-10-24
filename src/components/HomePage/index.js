@@ -41,7 +41,6 @@ export default function HomePage() {
       <YourPartner />
       <FeedbackList />
       <StudentAchievements />
-      <YoutubeEmbed />
       <FAQAndContact />
       <Cooperation />
     </>
