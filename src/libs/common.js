@@ -247,41 +247,30 @@ const feedbackList = [
 const FAQQuestion = [
   {
     id: 1,
-    question: 'Cambridge Academy là ai?',
-    answer:
-      'Cambridge Academy là trung tâm gia sư, nơi kết nối phụ huynh, học sinh và những người làm công việc giảng dạy đáng quý. Chúng tôi mang đến môi trường học tập an toàn, gần gũi và đáng tin cậy cho các bạn. Tại Cambridge Academy, chúng tôi nhận thấy rằng thời gian là điều quý giá và CA sẽ giúp bạn tiết kiệm thời gian tìm kiếm gia sư phù hợp, để bạn dành thời gian ấy cho học tập và rèn luyện. Với châm ngôn giáo dục gắn liền với yêu thương, khi bạn dành nhiều thời gian để học tập thì Cambridge Academy càng hạnh phúc',
+    question: 'Tại sao nên chọn học và thi chứng chỉ Cambridge?',
+    answer: 'Chứng chỉ Cambridge là một trong những chứng chỉ tiếng Anh phổ biến nhất, bằng tú tài Quốc tế A level được công nhận rộng rãi trên toàn thế giới.\nQuy trình đánh giá và kiểm tra của Cambridge đảm bảo chất lượng.\nChứng chỉ Cambridge là yếu tố quan trọng khi xin học bổng tại các trường Đại học uy tín hàng đầu thế giới.\n'
   },
   {
     id: 2,
-    question: 'Làm thế nào để tìm một gia sư phù hợp?',
-    answer:
-      'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.',
+    question: 'Học gia sư tại nhà thì giáo viên có hỗ trợ giáo trình trên trường của bé không?',
+    answer: 'Giáo viên luôn giúp học sinh bổ sung kiến thức, giải quyết các khó khăn và những câu hỏi mà học sinh không có cơ hội đặt ra tại trường. Bên cạnh đó Giáo viên đảm bảo trình độ tiếng anh của học sinh theo đúng lộ trình chuẩn Cambridge.'
   },
   {
     id: 3,
-    question: 'Tại sao bạn nên chọn Cambridge Academy?',
-    answer:
-      'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.',
+    question: 'Làm thế nào để tìm một giáo viên phù hợp?',
+    answer: 'Cambridge Academy sắp xếp một buổi kiểm tra chi tiết trình độ của học sinh, xác định mục tiêu và phong cách học tập cá nhân.\nBộ phận chuyên môn của Cambridge Academy liên tục theo dõi và đánh giá quá trình học tập, giảng dạy của học sinh và giáo viên.'
   },
   {
     id: 4,
-    question: 'Tại Cambridge Academy có những khóa học nào? ',
-    answer: 'Tại sao bạn nên chọn Cambridge Academy?',
+    question: 'Cambridge Academy có đăng ký thi chứng chỉ cho bé không?',
+    answer: 'Chúng tôi cam kết học sinh đạt chứng chỉ Cambridge theo đúng lộ trình tại các hội đồng thi với tiêu chuẩn Quốc tế. \n' +
+      'Cambridge Academy nhận đăng ký thi chứng chỉ miễn phí cho thí sinh tự do hoàn toàn miễn phí'
   },
   {
     id: 5,
-    question:
-      'Chúng ta nên có các bài học thường xuyên như thế nào và chúng nên kéo dài bao lâu?',
-    answer:
-      'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.',
-  },
-  {
-    id: 6,
-    question:
-      'Ai là giáo viên của khóa học? Họ có kinh nghiệm và bằng cấp phù hợp không?',
-    answer:
-      'Suspendisse ipsum elit, hendrerit id eleifend at, condimentum et mauris. Curabitur et libero vel arcu dignissim pulvinar ut ac leo. In sit amet orci et erat accumsan interdum.',
-  },
+    question: 'Cambridge Academy có định hướng gì sau khi bé tốt nghiệp cấp 3?',
+    answer: 'Đội ngũ chuyên gia của Cambridge Academy tư vấn chọn trường phù hợp giúp học viên hoàn tất hồ sơ, văn bằng yêu cầu của trường mà học viên có nguyện vọng đặt chân trên chặng đường tiếp theo.'
+  }
 ];
 
 const schoolListLogo = [

@@ -1,44 +1,20 @@
-import Carousel from '@/common/Carousel/Carousel';
-import {Box, Container} from '@mui/material';
-import React from 'react';
-import {SwiperSlide} from 'swiper/react';
+import {Box, Typography} from '@mui/material';
 import Image from 'next/image';
 import './index.css';
 
 import Marquee from "react-fast-marquee";
 
 
-const list = [
-  {
-    name: 'BM',
-    url: '/images/cooperation/bm.svg',
-  },
-  {
-    name: 'DC',
-    url: '/images/cooperation/dc.webp',
-  },
-  {
-    name: 'MC',
-    url: '/images/cooperation/mc.png',
-  },
-  {
-    name: 'Metro',
-    url: '/images/cooperation/metro.svg',
-  },
-];
-
 export default function Cooperation() {
-  const carouselOptions = {
-    autoplay: {
-      delay: 1500,
-    },
-  };
-
   return (
     <>
       <div
         className="desktop py-4"
       >
+        <Typography variant="h4" className="font-extrabold text-center mt-12 mb-10">
+          Đối tác của Cambridge Academy
+        </Typography>
+
         <Marquee
           gradient={true}
           loop={0}
@@ -113,6 +89,10 @@ export default function Cooperation() {
       <div
         className="mobile py-4"
       >
+        <Typography variant="h6" className="font-extrabold text-center  my-5">
+          Đối tác của Cambridge Academy
+        </Typography>
+
         <Marquee
           gradient={true}
           loop={0}

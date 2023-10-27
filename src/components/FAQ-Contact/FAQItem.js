@@ -1,10 +1,9 @@
 import {useState} from 'react';
-import {Box, Typography} from '@mui/material';
+import { Typography} from '@mui/material';
 import Image from 'next/image';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 export default function FAQItem(props) {
   const [isActive, setActive] = useState(false);
@@ -43,7 +42,8 @@ export default function FAQItem(props) {
         className="bg-transparent border-none"
       >
         <Typography
-          variant="paragraph"
+          className="text-left font-bold"
+          variant="body1"
           sx={{maxWidth: '80%'}}
         >
           {props.question}
@@ -54,7 +54,8 @@ export default function FAQItem(props) {
         className="font-bold text-left bg-transparent border-none"
       >
         <Typography
-          variant="body1"
+          sx={{ whiteSpace: "pre-wrap" }}
+          className="text-left text-black"
         >
           {props.answer}
         </Typography>
