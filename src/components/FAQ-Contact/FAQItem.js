@@ -1,5 +1,5 @@
 import {useState} from 'react';
-import { Typography} from '@mui/material';
+import {Box, Typography} from '@mui/material';
 import Image from 'next/image';
 import Accordion from '@mui/material/Accordion';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -23,28 +23,33 @@ export default function FAQItem(props) {
                onChange={handleChange(`faq-panel${props.id}`)}>
       <AccordionSummary
         expandIcon={!expanded ? (
-          <Image
-            src="/images/show-more-icon.png"
-            width={30}
-            height={30}
-            alt="show more icon"
-          />
+          <Box sx={{minWidth: 25}}>
+            <Image
+              src="/images/show-more-icon.png"
+              width={25}
+              height={25}
+              alt="show more icon"
+            />
+          </Box>
+
         ) : (
-          <Image
-            src="/images/show-less-icon.png"
-            width={30}
-            height={30}
-            alt="show less icon"
-          />
+          <Box sx={{minWidth: 25}}>
+            <Image
+              src="/images/show-less-icon.png"
+              width={25}
+              height={25}
+              alt="show less icon"
+            />
+          </Box>
         )}
         aria-controls={`faq-${props.id}bh-content`}
         id={`faq-${props.id}bh-header`}
         className="bg-transparent border-none"
       >
         <Typography
-          className="text-left font-bold"
+          className="text-left font-bold text-sm md:text-lg"
           variant="body1"
-          sx={{maxWidth: '80%'}}
+          sx={{maxWidth: '95%'}}
         >
           {props.question}
         </Typography>
@@ -55,7 +60,7 @@ export default function FAQItem(props) {
       >
         <Typography
           sx={{ whiteSpace: "pre-wrap" }}
-          className="text-left text-black"
+          className="text-left text-black text-sm md:text-lg"
         >
           {props.answer}
         </Typography>

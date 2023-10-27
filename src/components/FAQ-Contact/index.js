@@ -34,7 +34,7 @@ export default function FAQAndContact() {
               Frequently Asked Questions
             </Typography>
           </Box>
-          <section className="mt-3">
+          <section className="mt-5 md:mt-16">
             {defaultQuestion.map((item) => (
               <FAQItem
                 key={item.id}
