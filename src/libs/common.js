@@ -406,19 +406,19 @@ const cambridgeBlogs = [
   {
     id: 1,
     title: 'IGCSE Mathematics',
-    link: '/',
+    link: '/khoa-hoc/chuong-trinh-cambridge/chuong-trinh-igcse-mathematics',
     img: '/images/math-blog.jpeg',
   },
   {
     id: 2,
     title: 'IGCSE Combined Science ',
-    link: '/',
+    link: '/khoa-hoc/chuong-trinh-cambridge/chuong-trinh-igcse-combined-science',
     img: '/images/igcse-blog.jpeg',
   },
   {
     id: 3,
     title: 'IGCSE English Language ',
-    link: '/',
+    link: '/khoa-hoc/chuong-trinh-cambridge/chuong-trinh-igcse-english-language',
     img: '/images/igcse-english.jpeg',
   },
 ];
@@ -426,37 +426,37 @@ const levelBlogs = [
   {
     id: 1,
     title: 'A Level Mathematics',
-    link: '/',
+    link: '/khoa-hoc/chung-chi-cambridge/a-level-mathematics',
     img: '/images/level-math.jpeg',
   },
   {
     id: 2,
     title: 'A Level Physics',
-    link: '/',
+    link: '/khoa-hoc/chung-chi-cambridge/a-level-physics',
     img: '/images/level-physic.jpeg',
   },
   {
     id: 3,
     title: 'A Level Chemistry',
-    link: '/',
+    link: '/khoa-hoc/chung-chi-cambridge/a-level-chemistry',
     img: '/images/level-chemistry.jpeg',
   },
   {
     id: 4,
     title: 'A Level Biology',
-    link: '/',
+    link: '/khoa-hoc/chung-chi-cambridge/a-level-biology',
     img: '/images/level-biology.jpeg',
   },
   {
     id: 5,
     title: 'A Level Business',
-    link: '/',
+    link: '/khoa-hoc/chung-chi-cambridge/a-level-business',
     img: '/images/level-business.jpeg',
   },
   {
     id: 6,
     title: 'A Level Economics',
-    link: '/',
+    link: '/khoa-hoc/chung-chi-cambridge/a-level-economics',
     img: '/images/level-economics.jpeg',
   },
 ];

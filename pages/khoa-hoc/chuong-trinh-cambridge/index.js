@@ -124,7 +124,9 @@ export default function CambridgePrograms() {
         imgUrl="/images/IGCSE.jpeg"
       />
       <IGCSE />
+
       <Blogs blogs={cambridgeBlogs} />
+
       <RegisterNow />
     </CoursesLayout>
   );

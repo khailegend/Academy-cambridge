@@ -5,7 +5,7 @@ import React from 'react';
 
 export default function BlogItem({ blog }) {
   return (
-    <Box
+    <Link
       href={blog.link}
       className="group overflow-hidden cursor-pointer"
       sx={{ maxWidth: 366 }}
@@ -27,6 +27,6 @@ export default function BlogItem({ blog }) {
           {blog.title}
         </Typography>
       </Box>
-    </Box>
+    </Link>
   );
 }

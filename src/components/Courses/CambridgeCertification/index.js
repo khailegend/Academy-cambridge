@@ -88,7 +88,9 @@ export default function CambridgeCertification() {
           </Typography>
         </Box>
       </Container>
+
       <Blogs blogs={levelBlogs} />
+
       <ForwardSection
         title="CHỨNG CHỈ SAT"
         subtitle="Khóa học - SAT"
