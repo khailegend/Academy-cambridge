@@ -9,7 +9,7 @@ export default function FAQAndContact() {
   return (
     <div className="flex justify-between items-center w-full">
       <Grid container>
-        <Grid item md={5} className="mt-12 flex items-center justify-end">
+        <Grid item xs={12} sm={4} md={6} className="hidden md:flex mt-12 items-center justify-end">
           <Image src="/images/faqs.png"
              alt="faqs" width={500} height={500}
                  className="hidden lg:block"
@@ -21,7 +21,7 @@ export default function FAQAndContact() {
           />
         </Grid>
 
-        <Grid item md={6} lg={6} className="p-4">
+        <Grid item xs={12} sm={8} md={6} className="p-4">
           <Box>
             <Typography
               variant="h4"
