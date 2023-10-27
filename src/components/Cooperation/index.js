@@ -37,7 +37,7 @@ export default function Cooperation() {
   return (
     <>
       <div
-        className="web hidden md:block py-4"
+        className="desktop py-4"
       >
         <Marquee
           gradient={true}
@@ -111,7 +111,7 @@ export default function Cooperation() {
       </div>
 
       <div
-        className="mobile md:hidden py-4"
+        className="mobile py-4"
       >
         <Marquee
           gradient={true}

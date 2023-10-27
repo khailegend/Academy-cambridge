@@ -72,3 +72,14 @@ p{
   bottom: 0;
   background: white;
 }
+
+@layer components {
+  .desktop {
+    @apply hidden md:block;
+  }
+
+  .mobile {
+    @apply block md:hidden;
+  }
+}
+
