@@ -41,7 +41,9 @@ export default function HomePage() {
       <YourPartner />
       <FeedbackList />
       <StudentAchievements />
+
       <FAQAndContact />
+
       <Cooperation />
     </>
   );

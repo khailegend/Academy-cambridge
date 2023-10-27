@@ -47,70 +47,12 @@
   box-shadow: 0 0 0 1.5px #DEE4F1,  0px 5px 13px 0px #DEE4F1;;
 }
 
-.faq {
-  margin: 3rem 0;
-}
-.question-wrapper {
-  padding: 1rem;
-  transition: 1s;
+.faq.MuiAccordion-root {
+  border: none !important;
+  border-radius: 20px !important;
   background: rgba(217, 217, 217, 0.19);
-  border-radius: 12px;
 }
 
-.question {
-  display: flex;
-  font-size: 1rem;
-  font-weight: 500;
-  color: #212943;  
-  display: flex;
-  justify-content: space-between;
-  
-  svg {
-    width: 1rem;
-    height: 1.5rem;
-    fill: #9EA6AE;
-  }
-  
-  svg.active {
-    transform: rotate(180deg);
-  }
-  
-  svg:hover {
-    opacity: 0.8;
-  }
-}
-
-button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-}
-
-button:focus {
-  outline: none;
-}
-
-.answer {
+.faq.MuiAccordion-root:before {
   display: none;
 }
-
-.answer.active {
-  display: block;
-  text-align: left;
-  padding-top: 1.5rem;
-  color: #3C3C43D9;
-  height: 0%;
-  animation: slidein 0.4s;
-  animation-fill-mode: forwards;
-}
-
-@keyframes slidein {
-  from {
-    opacity: 0.3;
-    transform: translateY(-20%)
-  } to {
-    opacity: 1;
-    transform: translateY(0%);
-  }
-}
-

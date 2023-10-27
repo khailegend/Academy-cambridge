@@ -7,39 +7,39 @@ import { FAQQuestion as defaultQuestion } from '@/libs/common';
 
 export default function FAQAndContact() {
   return (
-    <Container maxWidth={false}>
-      <Container maxWidth="lg">
-        <Grid container>
-          <Grid item md={6} className="mt-12 hidden md:block">
-            <Image src="/images/faqs.png" width={530} height={425} alt="FAQ" />
-          </Grid>
-          <Grid item md={6}>
-            <div className="container">
-              <Box>
-                <Typography
-                  variant="h4"
-                  className="text-left text-lg"
-                  sx={{ color: 'rgba(0, 0, 0, 0.25);' }}
-                >
-                  FAQs
-                </Typography>
-                <Typography variant="h4" className="font-extrabold text-left">
-                  Frequently Asked Questions
-                </Typography>
-              </Box>
-              <section className="faq">
-                {defaultQuestion.map((item) => (
-                  <FAQItem
-                    key={item.id}
-                    question={item.question}
-                    answer={item.answer}
-                  />
-                ))}
-              </section>
-            </div>
-          </Grid>
+    <Container maxWidth="lg" className="flex justify-between   items-center">
+      <Grid container>
+
+        <Grid item md={6} className="mt-12 hidden lg:block">
+          <Image src="/images/faqs.png" width={530} height={425} alt="FAQ" />
         </Grid>
-      </Container>
+
+        <Grid item md={6}>
+          <div className="container">
+            <Box>
+              <Typography
+                variant="h4"
+                className="text-left text-lg"
+                sx={{ color: 'rgba(0, 0, 0, 0.25);' }}
+              >
+                FAQs
+              </Typography>
+              <Typography variant="h4" className="font-extrabold text-left">
+                Frequently Asked Questions
+              </Typography>
+            </Box>
+            <section className="mt-3">
+              {defaultQuestion.map((item) => (
+                <FAQItem
+                  key={item.id}
+                  question={item.question}
+                  answer={item.answer}
+                />
+              ))}
+            </section>
+          </div>
+        </Grid>
+      </Grid>
     </Container>
   );
 }
