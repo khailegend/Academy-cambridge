@@ -1,11 +1,13 @@
 import Carousel from '@/common/Carousel/Carousel';
-import styled from '@emotion/styled';
 import { Box, Container } from '@mui/material';
 import React from 'react';
 import { SwiperSlide } from 'swiper/react';
-import Cooperator from './Cooperator';
 import Image from 'next/image';
 import './index.css';
+
+import Marquee from "react-fast-marquee";
+
+
 const list = [
   {
     name: 'BM',
@@ -34,12 +36,11 @@ export default function Cooperation() {
 
   return (
     <>
-      <Container
-        maxWidth={false}
-        style={{ background: '#D9D9D94D' }}
-        className="flex-wrap justify-center gap-4 md:gap-10 py-14 hidden md:flex"
+      <Marquee
+        gradient={true}
+        loop={0}
       >
-        <Box className="py-12 px-8 bg-white rounded-3xl flex items-center justify-center w-[288px] h-[263px]">
+        <Box className="py-2 px-4">
           <Image
             src="/images/logos/idp.png"
             alt="idp"
@@ -47,7 +48,7 @@ export default function Cooperation() {
             height={90}
           />
         </Box>
-        <Box className="py-12 px-8 bg-white rounded-3xl flex items-center justify-center w-[288px] h-[263px]">
+        <Box className="py-2 px-4">
           <Image
             src="/images/logos/bgddt.png"
             alt="Bộ giáo dục và đào tạo TPHCM"
@@ -55,7 +56,7 @@ export default function Cooperation() {
             height={163}
           />
         </Box>
-        <Box className="py-12 px-8 bg-white rounded-3xl flex items-center justify-center w-[288px] h-[263px]">
+        <Box className="py-2 px-4">
           <Image
             src="/images/logos/britishcouncil.png"
             alt="idp"
@@ -63,7 +64,7 @@ export default function Cooperation() {
             height={75}
           />
         </Box>
-        <Box className="py-12 px-8 bg-white rounded-3xl flex items-center justify-center w-[288px] h-[263px]">
+        <Box className="py-2 px-4">
           <Image
             src="/images/logos/ca_assessment.png"
             alt="cambridge academy assessment"
@@ -71,7 +72,7 @@ export default function Cooperation() {
             height={148}
           />
         </Box>{' '}
-        <Box className="py-12 px-8 bg-white rounded-3xl flex items-center justify-center w-[288px] h-[263px]">
+        <Box className="py-2 px-4">
           <Image
             src="/images/logos/rmit.png"
             alt="RMIT University"
@@ -79,7 +80,7 @@ export default function Cooperation() {
             height={77}
           />
         </Box>
-        <Box className="py-12 px-8 bg-white rounded-3xl flex items-center justify-center w-[288px] h-[263px]">
+        <Box className="py-2 px-4">
           <Image
             src="/images/logos/ngoai_thuong.png"
             alt="Đại học ngoại thương"
@@ -87,7 +88,7 @@ export default function Cooperation() {
             height={170}
           />
         </Box>
-        <Box className="py-12 px-8 bg-white rounded-3xl flex items-center justify-center w-[288px] h-[263px]">
+        <Box className="py-2 px-4">
           <Image
             src="/images/logos/HCMIU.png"
             alt="idp"
@@ -95,7 +96,7 @@ export default function Cooperation() {
             height={180}
           />
         </Box>
-        <Box className="py-12 px-8 bg-white rounded-3xl flex items-center justify-center w-[288px] h-[263px]">
+        <Box className="py-2 px-4">
           <Image
             src="/images/logos/vin.png"
             alt="idp"
@@ -103,7 +104,8 @@ export default function Cooperation() {
             height={142}
           />
         </Box>
-      </Container>
+    </Marquee>
+
       <Container
         maxWidth={false}
         style={{ background: '#D9D9D94D' }}
