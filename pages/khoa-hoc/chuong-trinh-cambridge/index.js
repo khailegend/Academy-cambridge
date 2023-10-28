@@ -106,11 +106,13 @@ export default function CambridgePrograms() {
           })}
         </Box>
       </Box>
+
       <ForwardSection
         title="CHỨNG CHỈ PRIMARY CHECKPOINT"
         subtitle="Khóa học - Primary Checkpoint"
         imgUrl="/images/primary-checkpoint.jpeg"
       />
+
       <PrimaryCheckPoint />
       <ForwardSection
         title="CHỨNG CHỈ SECONDARY CHECKPOINT"
