@@ -14,6 +14,8 @@ import ReCAPTCHA from 'react-google-recaptcha'
 
 
 import {certificates, commonSubjects, foreignAndCambridgeSubjects, programs, schools} from "@/constant";
+import CircularProgress from "@mui/material/CircularProgress";
+import process from "next/dist/build/webpack/loaders/resolve-url-loader/lib/postcss";
 
 const btnClass = 'rounded-3xl py-3 px-6 font-extrabold mt-12 hover:bg-[#0C134F]';
 
@@ -21,7 +23,8 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
   const [currentProgramId, setCurrentProgramId] = useState(null);
 
   const [open, setOpen] = useState(false);
-
+  const recaptchaRef = React.createRef();
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const router = useRouter();
   const handleSetDefaultPrograms = (router) => {
@@ -67,8 +70,7 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
     age: null,
     schoolId: null,
     certificateId: null,
-    tutoringAddress: '',
-    recaptcha: ''
+    tutoringAddress: ''
   };
 
   const handleRenderButton = (values) => {
@@ -112,6 +114,8 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
   };
 
   const handleSubmitForm = async (values, resetForm) => {
+    setIsSubmitting(true);
+
     const {
       age, certificateId, email, gradeId, name, programId, schoolId, phone, subjects, tutoringAddress,
     } = values;
@@ -129,8 +133,18 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
       tutoringAddress,
     };
 
+    const token = await recaptchaRef.current.executeAsync();
 
+    console.log('reCAPTCHA token', token);
 
+    if (!token) {
+      alert('Rất tiếc Google reCAPTCHA không thể xác minh được danh tính của bạn. Vui lòng liên hệ admin để được hỗ trợ!');
+
+      setIsSubmitting(false);
+      return;
+    } else {
+      console.log('Google reCAPTCHA xác minh thành công');
+    }
 
     setOpen(true);
 
@@ -151,13 +165,15 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
     const {error} = await res.json();
     if (error) {
       console.log(error);
-      alert('Đã xảy ra lỗi, vui lòng liên hệ admin để được hỗ trợ!')
+      alert('Đã xảy ra lỗi, vui lòng liên hệ admin để được hỗ trợ!');
+      setIsSubmitting(false);
       return;
     } else {
       handleNext();
       resetForm();
     }
 
+    setIsSubmitting(false);
     setOpen(false);
   };
 
@@ -357,7 +373,11 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
           </Box>
 
           <div className="mt-3">
-            <ReCAPTCHA size="normal" sitekey="6LflYNcoAAAAAHoo_DuqfBoTvLVQgoTuuKievOlZ" />
+            <ReCAPTCHA
+              ref={recaptchaRef}
+              size="invisible"
+              sitekey={process.env.NEXT_PUBLIC_GOOGLE_RECAPTCHA_SITE_KEY}
+            />
           </div>
 
 
@@ -365,6 +385,7 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
             {activeStep === 0 ? <>{handleRenderButton(values)}</> : ''}
             {activeStep !== 0 && activeStep !== 2 && <Button
               onClick={handleBack}
+              sx={{width: '120px'}}
               className={`${btnClass} cursor-pointer ca-primary-bg-color text-white`}
             >
               Trở lại
@@ -372,12 +393,14 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
 
             {activeStep === 1 && (<Button
               type="submit"
-              className={`${btnClass} ml-3 ${isValid ? 'ca-primary-bg-color text-white ' : 'pointer-events-none cursor-not-allowed bg-gray-300 text-gray-100'}`}
+              sx={{width: '120px'}}
+              className={
+              `${btnClass} ml-3 ${isValid ? 'ca-primary-bg-color text-white ' : 'pointer-events-none cursor-not-allowed bg-gray-300 text-gray-100'}`}
             >
-              Đăng ký
+              {isSubmitting ? (
+                <CircularProgress className="text-white" size={30} />
+              ) : 'Đăng ký'}
             </Button>)}
-
-
           </Box>
         </Form>)}
       </Formik>
