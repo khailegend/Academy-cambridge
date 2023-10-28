@@ -10,6 +10,9 @@ import {hashGrades} from '@/libs/grades';
 import RegistrationSuccess from './RegistrationSuccess';
 import Loading from './Loading';
 import {useRouter} from 'next/router';
+import ReCAPTCHA from 'react-google-recaptcha'
+
+
 import {certificates, commonSubjects, foreignAndCambridgeSubjects, programs, schools} from "@/constant";
 
 const btnClass = 'rounded-3xl py-3 px-6 font-extrabold mt-12 hover:bg-[#0C134F]';
@@ -65,6 +68,7 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
     schoolId: null,
     certificateId: null,
     tutoringAddress: '',
+    recaptcha: ''
   };
 
   const handleRenderButton = (values) => {
@@ -125,6 +129,9 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
       tutoringAddress,
     };
 
+
+
+
     setOpen(true);
 
     const res = await fetch("/api/sendgrid", {
@@ -141,7 +148,7 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
       method: "POST",
     });
 
-    const { error } = await res.json();
+    const {error} = await res.json();
     if (error) {
       console.log(error);
       alert('Đã xảy ra lỗi, vui lòng liên hệ admin để được hỗ trợ!')
@@ -163,8 +170,7 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
         .required('Vui lòng nhập email'),
       phone: Yup.string()
         .matches(phoneRegExp, 'Số điện thoại không hợp lệ')
-        .required('Vui lòng nhập số điện thoại'),
-
+        .required('Vui lòng nhập số điện thoại')
     };
 
     if (parseInt(currentProgramId) === 1) {
@@ -205,162 +211,179 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
   };
 
   return (<>
-    <Loading open={open}/>
-    <Formik
-      className="w-full"
-      initialValues={initialValues}
-      enableReinitialize
-      validationSchema={() => renderValidationSchema()}
-      onSubmit={async (values, { resetForm }) => {
-        handleSubmitForm(values, resetForm);
+      <Loading open={open}/>
 
-      }}
-    >
-      {({values, errors, touched, setFieldValue, isValid}) => (<Form>
-        <Box>
-          {activeStep === 0 ? (<Box className="flex flex-col gap-8">
-            <Box className="flex flex-col gap-8">
-              <Typography className="font-extrabold text-lg" variant="h6">
-                Chọn chương trình: <span className="text-red-500">*</span>
-              </Typography>
-              <Box>
-                <Field name="programId">
-                  {({field}) => (<RadioGroup
-                    name={field.name}
-                    value={field.value}
-                    onChange={(e) => {
-                      field.onChange(e);
-                      handleRenderSubjectByProgram(e.target.value, setFieldValue);
-                    }}
-                    className="flex flex-col justify-start md:flex-row md:justify-around"
-                  >
-                    {programs.map((program) => (<FormControlLabel
-                      key={program.id}
-                      id={program.nameVn}
-                      value={program.id}
-                      control={<Radio
-                        sx={{
-                          '&.Mui-checked': {
-                            color: '#0C134F',
-                          },
-                        }}
-                      />}
-                      label={program.nameVn}
-                    />))}
-                  </RadioGroup>)}
-                </Field>
-                <ErrorMessage
-                  component="div"
-                  className="text-red-500"
-                  name="programId"
-                />
+
+      <Formik
+        className="w-full"
+        initialValues={initialValues}
+        enableReinitialize
+        validationSchema={() => renderValidationSchema()}
+        onSubmit={async (values, {resetForm}) => {
+          handleSubmitForm(values, resetForm);
+
+        }}
+      >
+
+
+        {({values, errors, touched, setFieldValue, isValid}) => (<Form>
+          <Box>
+
+
+
+            {activeStep === 0 ? (<Box className="flex flex-col gap-8">
+              <Box className="flex flex-col gap-8">
+                <Typography className="font-extrabold text-lg" variant="h6">
+                  Chọn chương trình: <span className="text-red-500">*</span>
+                </Typography>
+                <Box>
+                  <Field name="programId">
+                    {({field}) => (<RadioGroup
+                      name={field.name}
+                      value={field.value}
+                      onChange={(e) => {
+                        field.onChange(e);
+                        handleRenderSubjectByProgram(e.target.value, setFieldValue);
+                      }}
+                      className="flex flex-col justify-start md:flex-row md:justify-around"
+                    >
+                      {programs.map((program) => (<FormControlLabel
+                        key={program.id}
+                        id={program.nameVn}
+                        value={program.id}
+                        control={<Radio
+                          sx={{
+                            '&.Mui-checked': {
+                              color: '#0C134F',
+                            },
+                          }}
+                        />}
+                        label={program.nameVn}
+                      />))}
+                    </RadioGroup>)}
+                  </Field>
+                  <ErrorMessage
+                    component="div"
+                    className="text-red-500"
+                    name="programId"
+                  />
+                </Box>
+
+                {parseInt(values.programId) === 1 && <ForeignAndCambridgeProgram/>}
+
+                {parseInt(values.programId) === 2 && <IntegrateBilingualProgram/>}
+
+                {parseInt(values.programId) === 3 && <CommonProgram/>}
+
+                {parseInt(values.programId) === 4 && <CertificateProgram/>}
+
               </Box>
 
-              {parseInt(values.programId) === 1 && <ForeignAndCambridgeProgram/>}
+            </Box>) : ('')}
+            {activeStep === 1 ? (<Box
+              className={`flex flex-col ${activeStep === 1 ? '' : 'hidden'}`}
+            >
+              <Typography className="font-extrabold text-lg mb-2" variant="h6">
+                Thông tin liên hệ
+              </Typography>
 
-              {parseInt(values.programId) === 2 && <IntegrateBilingualProgram/>}
-
-              {parseInt(values.programId) === 3 && <CommonProgram/>}
-
-              {parseInt(values.programId) === 4 && <CertificateProgram/>}
-
-            </Box>
-
-          </Box>) : ('')}
-          {activeStep === 1 ? (<Box
-            className={`flex flex-col ${activeStep === 1 ? '' : 'hidden'}`}
-          >
-            <Typography className="font-extrabold text-lg mb-2" variant="h6">
-              Thông tin liên hệ
-            </Typography>
-
-            <Field name="name">
-              {({field, form}) => (<TextField
-                {...field}
-                type="fullname"
-                className="mt-3"
-                label={<Typography className="m-1">Họ và tên <span className="text-red-500">*</span></Typography>}
-                variant="outlined"
+              <Field name="name">
+                {({field, form}) => (<TextField
+                  {...field}
+                  type="fullname"
+                  className="mt-3"
+                  label={<Typography className="m-1">Họ và tên <span className="text-red-500">*</span></Typography>}
+                  variant="outlined"
+                />)}
+              </Field>
+              {touched.name && errors.name && (<ErrorMessage
+                name="name"
+                className="text-red-500 text-xs"
+                component="div"
               />)}
-            </Field>
-            {touched.name && errors.name && (<ErrorMessage
-              name="name"
-              className="text-red-500 text-xs"
-              component="div"
-            />)}
 
-            <Field name="email">
-              {({field, form}) => (<TextField
-                {...field}
-                type="email"
-                className="mt-4"
-                label={<Typography className="m-1">Địa chỉ email <span className="text-red-500">*</span></Typography>}
-                variant="outlined"
-              />)}
-            </Field>
-            <ErrorMessage
-              name="email"
-              className="text-red-500 text-xs"
-              component="div"
-            />
+              <Field name="email">
+                {({field, form}) => (<TextField
+                  {...field}
+                  type="email"
+                  className="mt-4"
+                  label={<Typography className="m-1">Địa chỉ email <span
+                    className="text-red-500">*</span></Typography>}
+                  variant="outlined"
+                />)}
+              </Field>
+              <ErrorMessage
+                name="email"
+                className="text-red-500 text-xs"
+                component="div"
+              />
 
-            <Field name="phone">
-              {({field, form}) => (<TextField
-                {...field}
-                type="phone"
-                className="mt-4"
-                label={<Typography className="m-1">Số điện thoại <span className="text-red-500">*</span></Typography>}
-                variant="outlined"
-                inputProps={{
-                  style: {
-                    color: '#0c134f', outline: '1px solid #0c134f!important',
-                  },
-                }}
-              />)}
-            </Field>
-            <ErrorMessage
-              name="phone"
-              className="text-red-500 text-xs"
-              component="div"
-            />
+              <Field name="phone">
+                {({field, form}) => (<TextField
+                  {...field}
+                  type="phone"
+                  className="mt-4"
+                  label={<Typography className="m-1">Số điện thoại <span
+                    className="text-red-500">*</span></Typography>}
+                  variant="outlined"
+                  inputProps={{
+                    style: {
+                      color: '#0c134f', outline: '1px solid #0c134f!important',
+                    },
+                  }}
+                />)}
+              </Field>
+              <ErrorMessage
+                name="phone"
+                className="text-red-500 text-xs"
+                component="div"
+              />
 
-            <Field name="tutoringAddress">
-              {({field, form}) => (<TextField
-                {...field}
-                className="mt-4"
-                label="Địa chỉ (nếu có nhu cầu học tại nhà)"
-                variant="outlined"
-                inputProps={{
-                  style: {
-                    color: '#0c134f', outline: '1px solid #0c134f!important',
-                  },
-                }}
-              />)}
-            </Field>
-          </Box>) : ('')}
-          {activeStep >= 2 ? <RegistrationSuccess/> : ''}
-        </Box>
-        <Box className="flex justify-center">
-          {activeStep === 0 ? <>{handleRenderButton(values)}</> : ''}
+              <Field name="tutoringAddress">
+                {({field, form}) => (<TextField
+                  {...field}
+                  className="mt-4"
+                  label="Địa chỉ (nếu có nhu cầu học tại nhà)"
+                  variant="outlined"
+                  inputProps={{
+                    style: {
+                      color: '#0c134f', outline: '1px solid #0c134f!important',
+                    },
+                  }}
+                />)}
+              </Field>
+            </Box>) : ('')}
+            {activeStep >= 2 ? <RegistrationSuccess/> : ''}
+          </Box>
+
+          <div className="mt-3">
+            <ReCAPTCHA size="normal" sitekey="6LflYNcoAAAAAHoo_DuqfBoTvLVQgoTuuKievOlZ" />
+          </div>
 
 
-          {activeStep !== 0 && activeStep !== 2 && <Button
-            onClick={handleBack}
-            className={`${btnClass} cursor-pointer ca-primary-bg-color text-white`}
-          >
-            Trở lại
-          </Button>}
+          <Box className="flex justify-center">
+            {activeStep === 0 ? <>{handleRenderButton(values)}</> : ''}
+            {activeStep !== 0 && activeStep !== 2 && <Button
+              onClick={handleBack}
+              className={`${btnClass} cursor-pointer ca-primary-bg-color text-white`}
+            >
+              Trở lại
+            </Button>}
 
-          {activeStep === 1 && (<Button
+            {activeStep === 1 && (<Button
               type="submit"
               className={`${btnClass} ml-3 ${isValid ? 'ca-primary-bg-color text-white ' : 'pointer-events-none cursor-not-allowed bg-gray-300 text-gray-100'}`}
             >
               Đăng ký
             </Button>)}
-        </Box>
-      </Form>)}
-    </Formik>
-  </>);
+
+
+          </Box>
+        </Form>)}
+      </Formik>
+    </>
+
+  );
 }
 
 const CommonProgram = () => {

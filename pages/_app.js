@@ -10,6 +10,7 @@ import Header from '@/common/Header';
 import Footer from '@/common/Footer';
 import { DefaultSeo } from 'next-seo';
 import RootLayout from "@/app/layout";
+
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
 
