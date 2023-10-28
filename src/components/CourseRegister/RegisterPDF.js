@@ -51,7 +51,6 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
 
   const handleRenderSubjectByProgram = (id, setFieldValue) => {
     setCurrentProgramId(id);
-    console.log('update', currentProgramId)
     setFieldValue('subjects', []);
   };
 
@@ -108,7 +107,7 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
     </Button>);
   };
 
-  const handleSubmitForm = async (values) => {
+  const handleSubmitForm = async (values, resetForm) => {
     const {
       age, certificateId, email, gradeId, name, programId, schoolId, phone, subjects, tutoringAddress,
     } = values;
@@ -149,6 +148,7 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
       return;
     } else {
       handleNext();
+      resetForm();
     }
 
     setOpen(false);
@@ -211,8 +211,9 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
       initialValues={initialValues}
       enableReinitialize
       validationSchema={() => renderValidationSchema()}
-      onSubmit={async (values) => {
-        handleSubmitForm(values);
+      onSubmit={async (values, { resetForm }) => {
+        handleSubmitForm(values, resetForm);
+
       }}
     >
       {({values, errors, touched, setFieldValue, isValid}) => (<Form>
