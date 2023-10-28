@@ -99,7 +99,7 @@ export default function ALevelBusiness() {
       </div>
 
       <div className="flex justify-between mt-5">
-        <div className="min-w-fit">
+        <div className="hidden md:block min-w-fit">
 
         </div>
         <MainKnowledge knowledges={knowledge}/>

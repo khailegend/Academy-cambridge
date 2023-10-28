@@ -107,7 +107,9 @@ export default function IgcseEnglishCombinedScienceProgram() {
 
       <div className="flex justify-between mt-3">
         <div>
-          <Image src="/images/chuong-trinh-quoc-te-cambridge/igcse-combined-science-image.jpg"
+          <Image
+            className="hidden md:block"
+            src="/images/chuong-trinh-quoc-te-cambridge/igcse-combined-science-image.jpg"
                  alt="igcse-mathematics-image" width={600} height={400}/>
         </div>
         <MainKnowledge knowledges={knowledge}/>

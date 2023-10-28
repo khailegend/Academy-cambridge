@@ -79,7 +79,9 @@ export default function ALevelMathematics() {
 
       <div className="flex justify-between mt-5">
         <div>
-          <Image src="/images/chung-chi-cambridge/a-level-mathematics-image.jpg"
+          <Image
+            className="hidden md:block"
+            src="/images/chung-chi-cambridge/a-level-mathematics-image.jpg"
                  alt="igcse-mathematics-image" width={600} height={400}/>
         </div>
         <MainKnowledge knowledges={knowledge}/>

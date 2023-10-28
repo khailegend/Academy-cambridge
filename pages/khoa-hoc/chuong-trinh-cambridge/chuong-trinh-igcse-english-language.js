@@ -87,9 +87,11 @@ export default function IgcseEnglishLanguageProgram() {
         </div>
       </div>
 
-      <div className="flex justify-between mt-3">
+      <div className="block md:flex justify-between mt-3">
         <div>
-          <Image src="/images/chuong-trinh-quoc-te-cambridge/igcse-english-language-image.png"
+          <Image
+            className="hidden md:block"
+            src="/images/chuong-trinh-quoc-te-cambridge/igcse-english-language-image.png"
                  alt="igcse-english-language-image" width={600} height={400}/>
         </div>
         <MainKnowledge knowledges={knowledge}/>

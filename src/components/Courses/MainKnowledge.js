@@ -2,7 +2,7 @@ import {Typography} from "@mui/material";
 import Image from "next/image";
 
 export default function MainKnowledge({ knowledges }) {
-  return (<div>
+  return (<div className=" pl-2">
     <Typography>
       Những kiến thức trọng tâm bao gồm:
     </Typography>

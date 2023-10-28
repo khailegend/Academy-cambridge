@@ -116,7 +116,9 @@ export default function ALevelChemistry() {
 
       <div className="flex justify-between mt-5">
         <div>
-          <Image src="/images/chung-chi-cambridge/a-level-chemistry-image.jpg"
+          <Image
+            className="hidden md:block"
+            src="/images/chung-chi-cambridge/a-level-chemistry-image.jpg"
                  alt="igcse-mathematics-image" width={600} height={400}/>
         </div>
         <MainKnowledge knowledges={knowledge}/>
