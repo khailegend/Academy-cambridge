@@ -128,8 +128,28 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
 
     setOpen(true);
 
-    console.log(values, 'nè')
-    alert('ok');
+    const res = await fetch("/api/sendgrid", {
+      body: JSON.stringify({
+        name,
+        email,
+        subject: 'Trường Bồi Dưỡng Ngoại Ngữ Cambridge Academy Gửi Phụ Huynh Bài Kiểm Tra Đầu Vào Cho Bé',
+        passPdf: 'passsss',
+        phone,
+      }),
+      headers: {
+        "Content-Type": "application/json",
+      },
+      method: "POST",
+    });
+
+    const { error } = await res.json();
+    if (error) {
+      console.log(error);
+      alert('Đã xảy ra lỗi, vui lòng liên hệ admin để được hỗ trợ!')
+      return;
+    } else {
+      handleNext();
+    }
 
     setOpen(false);
   };
@@ -256,6 +276,7 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
             <Field name="name">
               {({field, form}) => (<TextField
                 {...field}
+                type="fullname"
                 className="mt-3"
                 label={<Typography className="m-1">Họ và tên <span className="text-red-500">*</span></Typography>}
                 variant="outlined"

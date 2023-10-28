@@ -34,12 +34,17 @@ export default function CourseRegister() {
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
 
-    if (activeStep == 1) {
+    if (activeStep === 1) {
       setActiveStep((prevActiveStep) => prevActiveStep + 1);
     }
   };
 
   const handleBack = () => {
+
+    if (activeStep >= 2) {
+      setActiveStep((prevActiveStep) => 1);
+    }
+
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 

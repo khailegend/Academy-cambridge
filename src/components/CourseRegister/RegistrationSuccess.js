@@ -15,11 +15,14 @@ export default function RegistrationSuccess() {
         }}
       >
         <Typography>
-            Bài ĐÁNH GIÁ NĂNG LỰC sẽ được gửi vào hộp thư Gmail của phụ huynh sau 3 phút . 
-            <br/>
-            Xin vui lòng kiểm tra và làm theo hướng dẫn. Nếu phụ huynh chưa nhận được thư xin vui lòng liên hệ với Cambridge Academy.
-            <br/>
+            Bài ĐÁNH GIÁ NĂNG LỰC sẽ được gửi vào hộp thư Gmail của phụ huynh sau ít phút.
         </Typography>
+
+        <Typography className="mt-4">
+          Xin vui lòng kiểm tra và làm theo hướng dẫn.
+          Nếu phụ huynh chưa nhận được thư xin vui lòng liên hệ với Cambridge Academy.
+        </Typography>
+
         <Typography>
           <span className='text-red-500'>Hotline:</span> 0369 921 796
         </Typography>
