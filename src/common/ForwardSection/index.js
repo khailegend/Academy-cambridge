@@ -13,7 +13,7 @@ export default function ForwardSection({
     <Container
       maxWidth={false}
       sx={{ minHeight: 378, height: 'auto' }}
-      className="mt-24 mb-8 p-0"
+      className="my-3 md:my-7 p-0"
     >
       <Box
         sx={{

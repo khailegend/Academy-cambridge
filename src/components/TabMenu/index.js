@@ -71,12 +71,12 @@ const MenuTabs = () => {
     }
   }, []);
   return (
-    <AppBar sx={{ width: '100%', padding: '24px 0' }} className="bg-white top-14 sticky" id="menu-tabs">
+    <AppBar sx={{ width: '100%' }} className="bg-white top-14 sticky" id="menu-tabs">
       <ThemeProvider theme={customTheme}>
         <Box className="hidden lg:flex justify-center gap-8">
           {tabs.map((tab) => (
             <Tab
-              sx={{ width: 315, padding: '24px' }}
+              sx={{ width: 250, padding: '12px', fontSize: '11px' }}
               key={tab.id}
               label={tab.label.split('\n').map((line, index) => (
                 <Box key={index}>
@@ -85,7 +85,7 @@ const MenuTabs = () => {
                 </Box>
               ))}
               onClick={() => handleTabChange(tab.link)}
-              className={`text-black font-extrabold bg-[#537FE745] opacity-100 rounded-3xl ${handleActiveTab(
+              className={`my-3 text-black font-extrabold bg-[#537FE745] opacity-100 rounded-3xl ${handleActiveTab(
                 tab
               )}`}
             >
@@ -95,10 +95,10 @@ const MenuTabs = () => {
         </Box>
         <Box className="block lg:hidden">
           <MenuTabsMB>
-            <Box className="flex flex-wrap justify-center gap-8 overflow-auto mt-8">
+            <Box className="flex flex-wrap justify-center gap-2 overflow-auto my-2">
               {tabs.map((tab) => (
                 <Tab
-                  sx={{ width: 315, padding: '24px' }}
+                  sx={{ width: 150, padding: '10px', fontSize: '10px' }}
                   key={tab.id}
                   label={tab.label.split('\n').map((line, index) => (
                     <Box key={index}>

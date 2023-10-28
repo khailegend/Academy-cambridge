@@ -13,37 +13,46 @@ const carouselOptions = {
   pagination: {
     clickable: true,
   },
-  navigation: true
+  navigation: true,
+  breakpoints: {
+    640: {
+      slidesPerView: 1.25,
+      spaceBetween: 20
+    },
+    1024: {
+      slidesPerView: 2,
+      spaceBetween: 20
+    }
+  }
 };
 export default function CambridgeCertificationCarousel() {
   return (
     <Container
+      className="h-300px] md:h-[400px] mt-3 w-full"
       maxWidth={false}
       sx={{
         background: 'url("/images/global-bg.png")',
         backgroundPosition: 'center',
         backgroundSize: 'contain',
-        height: '70vh',
         backgroundRepeat: 'no-repeat',
       }}
     >
-      <Box className="flex h-full">
+      <Box className="flex h-[300px] md:h-[400px] py-0 md:py-5">
         <Carousel carouselOptions={carouselOptions}>
           {CambridgeCertificationCarouselData.map((item) => (
             <SwiperSlide key={item.id} style={{ background: 'transparent' }}>
-              <Box className="py-4 h-fit flex flex-col" sx={{ width: 348 }}>
+              <Box className="py-2 h-fit flex flex-col">
                 <Box
-                  sx={{ width: 348, height: 197, overflow: 'hidden' }}
-                  className="mb-8"
+                  className="h-[150px] md:h-[200px]"
+                  sx={{
+                    background: `url("${item.url}")`,
+                    backgroundPosition: 'center',
+                    backgroundSize: 'contain',
+                    backgroundRepeat: 'no-repeat',
+                  }}
                 >
-                  <Image
-                    src={item.url}
-                    alt={item.name}
-                    width={348}
-                    height={197}
-                  />
                 </Box>
-                <Typography>{item.desc}</Typography>
+                <Typography className="text-md text-center py-2 mb-3 md:mb-5">{item.desc}</Typography>
               </Box>
             </SwiperSlide>
           ))}

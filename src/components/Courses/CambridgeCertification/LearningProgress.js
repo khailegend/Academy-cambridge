@@ -13,13 +13,13 @@ const LearningProgress = (props) => (
         style={{ margin: 'auto' }}
       />
     </Box>
-    <Box className="py-24">
+    <Box className="pt-16">
       <CASectionTitle
         label="Chứng chỉ Young Learner English Test "
-        classList="text-center mb-12 text-semibold"
+        classList="text-center text-semibold"
         fontPrimary={false}
       />
-      <Box className="flex justify-around">
+      <Box className="flex justify-around mt-2">
         <Box>
           <Image
             src="/images/starters.png"

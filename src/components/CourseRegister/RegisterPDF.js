@@ -133,6 +133,13 @@ export default function RegisterPDF({activeStep, handleNext, handleBack}) {
       tutoringAddress,
     };
 
+    if (!recaptchaRef?.current) {
+      alert('Rất tiếc Google reCAPTCHA không thể xác minh được danh tính của bạn. Vui lòng liên hệ admin để được hỗ trợ!');
+
+      setIsSubmitting(false);
+      return;
+    }
+
     const token = await recaptchaRef.current.executeAsync();
 
     console.log('reCAPTCHA token', token);
