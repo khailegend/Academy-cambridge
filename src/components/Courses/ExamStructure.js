@@ -30,7 +30,7 @@ export default function ExamStructure({ parts, levels }) {
         container
         gap={2}
         justifyContent="center"
-        className="w-2/3">
+        className="w-full md:w-3/4 lg:w-2/3">
         {
           parts?.map((part, index) => {
             return (
