@@ -7,7 +7,7 @@ export default function Blogs({ blogs }) {
   return (
     <div
       maxWidth={false}
-      className="flex justify-around gap-3 my-3 md:my-7  md:mx-5 lg:mx-20"
+      className="flex justify-around gap-3 my-3 md:my-7 mx-5 lg:mx-20"
     >
       <Grid container spacing={{ xs: 2, sm: 1, md: 3 }} columns={{ xs: 4, sm: 8, md: 12 }}>
         {blogs.map((blog, index) => (

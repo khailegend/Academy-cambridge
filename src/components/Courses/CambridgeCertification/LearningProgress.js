@@ -13,6 +13,7 @@ const LearningProgress = (props) => (
         style={{ margin: 'auto' }}
       />
     </Box>
+
     <Box className="pt-16">
       <CASectionTitle
         label="Chứng chỉ Young Learner English Test "

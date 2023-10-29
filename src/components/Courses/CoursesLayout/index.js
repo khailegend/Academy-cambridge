@@ -12,9 +12,9 @@ export default function CoursesLayout({ children }) {
       <Box sx={{ width: '100%', height: '100vh' }} className="relative">
         <Image
           src="/images/homepage/khoahoc.png"
-          alt="Khoa hoc"
-          layout="fill"
-          objectFit="cover"
+          alt="Khóa học"
+          fill
+          style={{objectFit:"cover"}}
         />
       </Box>
       <TabsMenu />

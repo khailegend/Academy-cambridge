@@ -12,19 +12,18 @@ export default function ForwardSection({
   return (
     <Container
       maxWidth={false}
-      sx={{ minHeight: 378, height: 'auto' }}
+      sx={{ minHeight: 200, height: 'auto' }}
       className="my-3 md:my-7 p-0"
     >
       <Box
         sx={{
           width: '100%',
-          height: '378px',
           backgroundImage: `url("${imgUrl}")`,
           backgroundRepeat: 'no-repeat',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
         }}
-        className="flex flex-col justify-end"
+        className="flex flex-col justify-end h-[200px] md:h-[300px]"
       >
         <Container maxWidth={isFullWidth ? false : 'lg'}>
           <Box className="flex flex-col justify-end pb-4">
