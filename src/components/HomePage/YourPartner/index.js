@@ -2,6 +2,11 @@ import { Box, Collapse, Container, Typography } from '@mui/material';
 import Image from 'next/image';
 import React, { useState } from 'react';
 import './index.css';
+import Grid from "@mui/material/Grid";
+import AccordionDetails from "@mui/material/AccordionDetails";
+import Accordion from "@mui/material/Accordion";
+import MuiAccordionSummary from "@mui/material/AccordionSummary";
+import styled from "@emotion/styled";
 
 const list = [
   {
@@ -25,89 +30,106 @@ const list = [
 ];
 
 const Item = ({ data }) => {
+  const [expanded, setExpanded] = React.useState(false);
+
+  const handleChange = (panel) => (event, isExpanded) => {
+    setExpanded(isExpanded ? panel : false);
+  };
+
+
+  const AccordionSummary = styled((props) => (
+    <MuiAccordionSummary
+      expandIcon={!expanded ? (
+        <Box sx={{minWidth: 10}} className="hidden md:block">
+          <Image
+            src="/images/show-more-icon.png"
+            width={25}
+            height={25}
+            alt="show more icon"
+          />
+        </Box>
+
+      ) : (
+        <Box sx={{minWidth: 10}} className="hidden md:block">
+          <Image
+            src="/images/show-less-icon.png"
+            width={25}
+            height={25}
+            alt="show less icon"
+          />
+        </Box>
+      )}
+      {...props}
+    />
+  ))(({ theme }) => ({
+    flexDirection: 'row-reverse',
+    '& .MuiAccordionSummary-expandIconWrapper.Mui-expanded': {
+      // transform: 'rotate(-90deg)',
+    },
+    '& .MuiAccordionSummary-content': {
+      marginLeft: theme.spacing(1),
+    },
+  }));
+
+
   return (
-    <Box
-      className="text-center cursor-pointer p-12 bg-white relative h-auto wrapper-item"
-      sx={{
-        width: 260,
-        height: 188,
-        boxShadow: '3px 8px 10px 0px rgba(0, 0, 0, 0.25)',
-      }}
+    <Accordion
+      expanded={expanded === 'yp-panel1'} onChange={handleChange('yp-panel1')}
+      sx={{top: "-50px"}}
     >
-      <Box className="">
-        <Typography className="text-2xl font-bold flex justify-center items-center h-full">
+      <AccordionSummary
+        aria-controls="yp-panel1bh-content"
+        id="panel1bh-header"
+        className="w-full h-[100px] p-1 md:p-2"
+      >
+        <Typography className="text-md md:text-lg lg:text-xl">
           {data.title}
         </Typography>
-      </Box>
 
-      <Box className="item-content overflow-hidden">
-        <Typography>{data.content}</Typography>
-      </Box>
 
-      <Box className="cursor-pointer expand-more absolute right-[-5px] bottom-[-30px] group">
-        <Image
-          src="/images/show-more-v2.png"
-          width={68}
-          height={68}
-          alt="show more"
-        />
-        <Box className="no-expand">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            className="w-6 h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-          </svg>
-        </Box>
-      </Box>
-    </Box>
+      </AccordionSummary>
+      <AccordionDetails
+      >
+        <Typography className="text-sm md:text-md lg:text-lg">{data.content}</Typography>
+      </AccordionDetails>
+    </Accordion>
   );
 };
 
 export default function YourPartner() {
   return (
-    <Container maxWidth={false} className="p-0 h-auto md:h-[800px]">
-      <Box className="py-12">
-        <Box className="w-full">
-          <Typography className="text-[28px] md:text-5xl font-extrabold leading-[60px] text-center">
-            <span className="text-[#E19F20]">Giáo viên</span> tại Cambridge
-            Academy
-          </Typography>
+    <Box className="pt-5 md:pt-8">
+      <Box className="w-full">
+        <Typography className="text-[28px] md:text-5xl font-extrabold leading-[60px] text-center">
+          <span className="text-[#E19F20]">Giáo viên</span> tại Cambridge
+          Academy
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          width: '100%',
+        }}
+        className="pt-10"
+      >
+        <Box sx={{ height: 375 }} className="relative">
+          <Image
+            src="/images/homepage/ca-teacher.png"
+            layout="fill"
+            objectFit="cover"
+            alt="Giáo viên của CA"
+          />
         </Box>
-        <Box
-          sx={{
-            width: '100%',
-          }}
-          className="pt-10"
-        >
-          <Box sx={{ height: 375 }} className="relative">
-            <Image
-              src="/images/homepage/ca-teacher.png"
-              layout="fill"
-              objectFit="cover"
-              alt="Giáo viên của CA"
-            />
-          </Box>
-          <Container maxWidth="lg">
-            <Box
-              className="flex justify-around items-start relative gap-10 flex-wrap md:flex-nowrap"
-              sx={{ bottom: '60px' }}
-            >
-              {list.map((data) => (
+
+        <Box  className="mx-1 md:mx-10">
+          <Grid container spacing={{ xs: 0.2, md: 3 }} columns={{ xs: 12, sm: 12, md: 12 }}>
+            {list.map((data, index) => (
+              <Grid item xs={4} sm={4} md={4} key={index}>
                 <Item key={data.id} data={data} />
-              ))}
-            </Box>
-          </Container>
+              </Grid>
+            ))}
+          </Grid>
         </Box>
       </Box>
-    </Container>
+    </Box>
   );
 }

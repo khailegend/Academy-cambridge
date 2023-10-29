@@ -21,9 +21,9 @@ export default function ControlledAccordions() {
 
   return (
     <Container maxWidth="lg" className="px-0 md:p-auto">
-      <Box className="flex flex-col-reverse md:flex-row justify-between items-start gap-x-12 border-none">
+      <Box className="flex flex-col-reverse mt-5 md:mt-0 md:flex-row justify-between items-start gap-x-12 border-none">
         <div
-          className="magic-cards xs:w-full md:2/3 lg:w-1/2 p-5"
+          className="magic-cards xs:w-full md:2/3 lg:w-1/2 p-3 md:p-5"
         >
           {
             data.map((item, index) => {
@@ -39,13 +39,12 @@ export default function ControlledAccordions() {
 
                   <AccordionSummary
                     aria-controls={`panel${index}d-content`} id={`panel${index}d-header`}
-                    className={`flex items-center gap-2`}
+                    className={`flex items-center gap-2 py-2 px-3 md:px-9`}
                     sx={{
                       background: item.backgroundColor,
                       border: 'none',
                       transition: (index === 3 && expanded === 'panel3') ? '' : '0.9s !important',
                       borderRadius: (index === 3 && expanded !== 'panel3') ? '50px 50px' : '50px 50px 0 0',
-                      padding: '20px 36px'
                     }}
                   >
                     <Box
@@ -57,15 +56,11 @@ export default function ControlledAccordions() {
                     <Typography
                       sx={{
                         color: item.textColor,
-                        fontSize: '18px',
-                        '@media (min-width:768px)': {
-                          fontSize: '30px',
-                        },
                         lineHeight: '40px',
                         marginBottom: 0,
                         border: 'none',
                       }}
-                      className="font-extrabold"
+                      className="font-extrabold text-xl md:text-2xl lg:text-3xl"
                       gutterBottom
                     >
                       {item.title}
@@ -77,11 +72,10 @@ export default function ControlledAccordions() {
                     <Typography
                       variant="h5"
                       component="div"
+                      className=" py-2 px-3 md:px-9 text-lg md:text-xl"
                       sx={{
                         color:  item.textColor,
-                        fontSize: 18,
                         background:item.backgroundColor,
-                        padding: '20px 36px',
                         margin: 0,
                         border: 'none',
                         borderRadius: index === 3 ? '0 0 50px 50px' : ''
@@ -96,7 +90,7 @@ export default function ControlledAccordions() {
           }
         </div>
 
-        <Box className="hidden sm:flex justify-center items-center">
+        <Box className="hidden md:flex justify-center items-center">
           <Image
             src="/images/magic-card-bg.jpeg"
             width={582}

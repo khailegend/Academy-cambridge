@@ -93,6 +93,7 @@ const MenuTabs = () => {
             </Tab>
           ))}
         </Box>
+
         <Box className="block lg:hidden">
           <MenuTabsMB>
             <Box className="flex flex-wrap justify-center gap-2 overflow-auto my-2">

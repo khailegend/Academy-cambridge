@@ -19,8 +19,6 @@ const carouselOptions = {
   },
   spaceBetween: 0,
   speed: 1000,
-  loop: true,
-  navigation: false,
   navigation: {
     nextEl: '.custom-next-swiper',
     prevEl: '.custom-prev-swiper',
@@ -34,7 +32,7 @@ const carouselOptions = {
 
 export default function FeedbackList() {
   return (
-    <Container maxWidth={false} className="py-12 relative">
+    <Container maxWidth={false} className="py-5 md:py-8 relative">
       <Box sx={{ width: '100%' }} className="feedback-carousel">
         <Box>
           <CASectionTitle

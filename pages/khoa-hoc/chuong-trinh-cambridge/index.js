@@ -53,7 +53,8 @@ export default function CambridgePrograms() {
       />
 
       <LogoSlider list={schoolListLogo} />
-      <Box className="text-center py-24">
+
+      <Box className="text-center">
         <CASectionTitle label="Chương trình học chuẩn quốc tế" />
         <Typography>
           Được đại học Cambridge Anh Quốc xây dựng và phát triển
@@ -90,7 +91,7 @@ export default function CambridgePrograms() {
       </Container>
       <RoadMap />
       <Box>
-        <Box className="text-center py-24">
+        <Box className="text-center py-5 md:py-10">
           <CASectionTitle label="Thế mạnh của Cambridge Academy là gì?" />
           <Typography>
             Những gia sư ưu tú cùng với kinh nghiệm nhiều năm giảng dạy chương

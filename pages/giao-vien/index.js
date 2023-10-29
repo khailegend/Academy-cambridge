@@ -15,7 +15,7 @@ export default function TeacherPage() {
         description="CAMBRIDGE ACADEMY - cùng học sinh chinh phục từng cột mốc tri thức"
       />
 
-      <Box className="px-12 py-8">
+      <Box className="px-12 py-5 md:py-8">
         <Container
           maxWidth={false}
           className="flex-wrap justify-center gap-4 md:gap-10 py-14 md:flex"

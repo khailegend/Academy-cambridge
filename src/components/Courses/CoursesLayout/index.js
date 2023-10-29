@@ -9,7 +9,8 @@ import Image from 'next/image';
 export default function CoursesLayout({ children }) {
   return (
     <Container maxWidth={false} className="p-0">
-      <Box sx={{ width: '100%', height: '100vh' }} className="relative">
+
+      <Box sx={{ width: '100%' }} className="relative h-[150px] md:h-[700px]">
         <Image
           src="/images/homepage/khoahoc.png"
           alt="Khóa học"
@@ -17,7 +18,11 @@ export default function CoursesLayout({ children }) {
           style={{objectFit:"cover"}}
         />
       </Box>
+
       <TabsMenu />
+
+
+
       {children}
       <CourseRegister />
 

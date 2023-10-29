@@ -11,8 +11,9 @@ import {SATBlogs, levelBlogs} from '@/libs/common';
 export default function CambridgeCertification() {
   return (
     <>
-      <Container maxWidth="lg">
+      <Container maxWidth="lg mt-14 py-2">
         <Box className="flex flex-col justify-center items-center mt-5">
+
           <Typography
             style={{fontFamily: 'sourceSerif'}}
             className="text-5xl font-semibold leading-[60px]"
@@ -20,6 +21,8 @@ export default function CambridgeCertification() {
             Chinh phục{' '}
             <span className="ca-secondary-color">chứng chỉ Cambridge</span>
           </Typography>
+
+
           <CASectionTitle
             label="Mở đường những ước mơ"
             fontPrimary={false}

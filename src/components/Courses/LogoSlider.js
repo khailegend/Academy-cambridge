@@ -23,7 +23,7 @@ export default function LogoSlider({ list }) {
   return (
     <Container maxWidth="lg">
       <Box
-        className="flex justify-start md:justify-around items-center my-8 md:py-24"
+        className="flex justify-start md:justify-around items-center my-4 md:py-6"
         sx={{
           flexDirection: 'column',
           '@media (min-width: 768px)': {
@@ -36,17 +36,14 @@ export default function LogoSlider({ list }) {
             width: 300,
             height: 300,
           }}
+          className="hidden md:block"
         >
           <Carousel carouselOptions={carouselOptions}>
             {list.map((item) => {
               return (
                 <SwiperSlide key={item.id}>
                   <Box
-                    sx={{
-                      width: 300,
-                      height: 300,
-                    }}
-                    className="flex justify-center items-center md:flex-col-reverse"
+                    className="flex relative justify-center items-center md:flex-col-reverse"
                   >
                     <Image
                       src={item.url}
