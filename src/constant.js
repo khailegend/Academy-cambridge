@@ -30,11 +30,13 @@ export const certificates = [
     id: 1,
     shortCode: "STARTERS",
     nameEn: "Pre A1 Starters",
+    link: 'https://drive.google.com/drive/folders/12bjEU-ad1DpkCBAKJ9iBoYu7CcuoaSp-?usp=drive_link',
     description: "Pre A1 Starters' là một trong những chứng chỉ thuộc Cambridge English Qualifications. Đây là sự khởi đầu cho hành trình học ngôn ngữ của trẻ em. Pre A1 Starters là bài thi đầu tiên trong bộ ba bài thi của chương trình 'Cambridge English: Young Learners (YLE)' dành cho trẻ em.",
   }, {
     id: 2,
     shortCode: "MOVERS",
     nameEn: "A1 Movers",
+    link: 'https://drive.google.com/drive/folders/1oXSuE4NWH1fwoU7CEMi7BshvhpqYPI83?usp=drive_link',
     description: "A1 Movers' là một trong những chứng chỉ thuộc Cambridge English Qualifications. Đây là sự khởi đầu cho hành trình học ngôn ngữ của trẻ em. Pre A1 Starters là bài thi đầu tiên trong bộ ba bài thi của chương trình 'Cambridge English: Young Learners (YLE)' dành cho trẻ em.",
 
   }, {
