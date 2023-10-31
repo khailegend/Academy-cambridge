@@ -71,7 +71,7 @@ const MenuTabs = () => {
     }
   }, []);
   return (
-    <AppBar sx={{ width: '100%' }} className="bg-white top-14 sticky" id="menu-tabs">
+    <AppBar sx={{ width: '100%' }} className="bg-white top-14 sticky mb-14" id="menu-tabs">
       <ThemeProvider theme={customTheme}>
         <Box className="hidden lg:flex justify-center gap-8">
           {tabs.map((tab) => (

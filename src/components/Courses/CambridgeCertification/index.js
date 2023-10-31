@@ -11,28 +11,27 @@ import {SATBlogs, levelBlogs} from '@/libs/common';
 export default function CambridgeCertification() {
   return (
     <>
-      <Container maxWidth="lg mt-14 py-2">
-        <Box className="flex flex-col justify-center items-center mt-5">
+      <Box className="flex flex-col justify-center items-center mt-5">
 
-          <Typography
-            style={{fontFamily: 'sourceSerif'}}
-            className="text-5xl font-semibold leading-[60px]"
-          >
-            Chinh phục{' '}
-            <span className="ca-secondary-color">chứng chỉ Cambridge</span>
-          </Typography>
+        <Typography
+          style={{fontFamily: 'sourceSerif'}}
+          className="text-5xl font-semibold leading-[60px]"
+        >
+          Chinh phục{' '}
+          <span className="ca-secondary-color">chứng chỉ Cambridge</span>
+        </Typography>
 
 
-          <CASectionTitle
-            label="Mở đường những ước mơ"
-            fontPrimary={false}
-            classList="font-semibold"
-          />
-          <Typography className="my-6">
-            Ước mơ sẽ thành hiện thực nếu bạn đủ sẵn sàng
-          </Typography>
-        </Box>
-      </Container>
+        <CASectionTitle
+          label="Mở đường những ước mơ"
+          fontPrimary={false}
+          classList="font-semibold"
+        />
+        <Typography className="my-6">
+          Ước mơ sẽ thành hiện thực nếu bạn đủ sẵn sàng
+        </Typography>
+      </Box>
+
       <Container maxWidth={false}>
         <LearningProgress/>
       </Container>

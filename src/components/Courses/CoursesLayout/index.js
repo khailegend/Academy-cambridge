@@ -21,8 +21,6 @@ export default function CoursesLayout({ children }) {
 
       <TabsMenu />
 
-
-
       {children}
       <CourseRegister />
 
