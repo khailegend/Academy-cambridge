@@ -10,7 +10,7 @@ export default function CALinkButton({
   return (
     <Link
       href={href}
-      className={`py-3 px-6 rounded text-white font-bold text-base ${classStyle}`}
+      className={`text:xl md:text-2xl lg:text-3xl py-3 px-6 rounded text-white font-bold text-base ${classStyle}`}
     >
       {children}
       {label}

@@ -4,8 +4,8 @@ import React from 'react';
 
 export default function CertificationTrain() {
   return (
-    <Box className="flex flex-col justify-center items-center gap-y-8 bg-white p-12">
-      <Typography className="font-bold text-3xl text-center">
+    <Box className="flex flex-col justify-center items-center gap-y-8 bg-white  py-8 md:py-12 px-12">
+      <Typography className="font-bold  text:xl md:text-2xl lg:text-3xl text-center">
         Luyện thi chứng chỉ
       </Typography>
       <Box className="flex gap-2">

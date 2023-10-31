@@ -9,7 +9,7 @@ export default function CASectionTitle({
   return (
     <Typography
       fontFamily={fontPrimary ? '' : 'sourceSerif'}
-      className={`text-xl md:text-3xl font-extrabold md:leading-[60px] ${classList}`}
+      className={`text-xl md:text-2xl lg:text-3xl font-extrabold md:leading-[40px] ${classList}`}
     >
       {label}
     </Typography>

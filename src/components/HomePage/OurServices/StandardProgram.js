@@ -4,8 +4,8 @@ import React from 'react';
 
 export default function StandardProgram() {
   return (
-    <Box className="flex flex-col justify-center items-center gap-y-8  bg-white p-12 h-full">
-      <Typography className="font-bold text-3xl text-center whitespace-nowrap">
+    <Box className="flex flex-col justify-center items-center gap-y-8  bg-white  py-8 md:py-12 px-12 h-full">
+      <Typography className="font-bold text:xl md:text-2xl lg:text-3xl text-center whitespace-nowrap">
         Chương trình <br /> Bộ Giáo dục & Đào tạo
       </Typography>
       <Image

@@ -70,12 +70,12 @@ export default function Intro() {
           maxWidth="lg"
           className="flex flex-col md:flex-row justify-between py-16"
         >
-          <Box className="w-full md:w-1/2">
+          <Box className="w-full md:w-1/2 p-3 md:p-5">
             <CASectionTitle
               fontPrimary={false}
               label="Chúng tôi cung cấp lớp học cá nhân hoá, gia sư phù hợp với mục tiêu của từng học viên. "
             />
-            <Typography className="text-justify">
+            <Typography className="text-justify mt-2">
               Chúng tôi chuẩn bị hành trang kiến thức cho học viên đáp ứng yêu
               cầu của các trường Đại học hàng đầu tại Việt Nam, Anh Quốc, Mỹ,
               Úc, Canada,...
@@ -113,7 +113,7 @@ export default function Intro() {
               sx={{
                 transform: 'rotate(-7.652deg)',
               }}
-              className="relative md:absolute top-0 right-0 md:top-[-80px] md:right-[-65px]"
+              className="relative hidden md:block md:absolute top-0 right-0 md:top-[-100px] md:right-[-100px]"
             >
               <Image
                 src="/images/plane.svg"

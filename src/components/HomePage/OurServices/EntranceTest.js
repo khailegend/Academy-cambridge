@@ -4,8 +4,8 @@ import React from 'react';
 
 export default function EntranceTest() {
   return (
-    <Box className="flex flex-col justify-center items-center gap-y-8  bg-white px-12 h-full py-12 lg:py-0">
-      <Typography className="font-bold text-3xl text-center">
+    <Box className="flex flex-col justify-center items-center gap-y-8  bg-white  px-8 md:px-12 h-full py-8 md:py-12">
+      <Typography className="font-bold text:xl md:text-2xl lg:text-3xl text-center">
         Luyện thi đầu vào
       </Typography>
       <Box className="flex flex-col gap-4 flex-wrap">

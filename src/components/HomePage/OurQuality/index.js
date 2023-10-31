@@ -42,24 +42,25 @@ export default function OurQuality() {
         label="Cambridge Academy đảm bảo chất lượng"
         classList="text-center"
       />
-      <Container maxWidth="lg">
-        <Box className="overflow-x-auto">
-          <Box className="flex justify-between py-24 flex-nowrap">
-            <ImprovementCommit />
-            <QualityCommit />
-            <DedicateCommit />
-          </Box>
+
+
+      <Box className="overflow-x-auto">
+        <Box className="flex justify-between py-12 md:py-16 flex-nowrap">
+          <ImprovementCommit />
+          <QualityCommit />
+          <DedicateCommit />
         </Box>
-      </Container>
-      <Box className="relative py-12" id="ca-slogan">
+      </Box>
+
+
+      <Box className="relative py-5 md:py-8 lg:py-10" id="ca-slogan">
         <Box
           sx={{
             background:
               'linear-gradient(270deg, #FFB84C 0%, rgba(255, 255, 255, 0.00) 100%)',
-            top: '50%',
-            transform: 'translateY(-50%)',
+            top: '50%'
           }}
-          className={`hidden md:block z-[1] text-5xl transition-all duration-1000 text-center md:text-left absolute text-white font-bold w-full lg:w-1/2 py-16 px-12 leading-[60px] md:z-[1] ${
+          className={`hidden md:block  md:translate-y-[-25%] z-[1] text-5xl transition-all duration-1000 text-center md:text-left absolute text-white font-bold w-full lg:w-1/2 py-16 px-12 leading-[60px] md:z-[1] ${
             isShow ? 'left-0' : 'left-[-100%]'
           }`}
         >
@@ -68,6 +69,7 @@ export default function OurQuality() {
           <CASectionTitle fontPrimary={false} label="sứ mệnh giáo dục" />
           <CASectionTitle fontPrimary={false} label="và tình yêu thương" />
         </Box>
+
         <Box className="flex justify-end relative">
           <Image
             src="/images/homepage/ca-quality.png"
@@ -80,10 +82,8 @@ export default function OurQuality() {
           sx={{
             background:
               'linear-gradient(180deg, #FFB84C 0%, rgba(255, 255, 255, 0.00) 100%)',
-            // top: '50%',
-            transform: 'translateY(-25%)',
           }}
-          className={`block md:hidden absolute text-5xl transition-all duration-1000 text-center text-white font-bold w-full lg:w-1/2 py-8 px-6 leading-[60px] md:z-[1] ${
+          className={`block transform translate-y-[-50%] md:hidden absolute text-5xl transition-all duration-1000 text-center text-white font-bold w-full lg:w-1/2 py-8 px-6 leading-[60px] md:z-[1] ${
             isShow ? 'left-0' : 'left-[-100%]'
           }`}
         >
