@@ -10,6 +10,7 @@
     "prettier": "prettier --write ."
   },
   "dependencies": {
+    "@emotion/cache": "^11.11.0",
     "@emotion/core": "^11.0.0",
     "@emotion/react": "^11.11.1",
     "@emotion/server": "^11.11.0",
@@ -21,6 +22,7 @@
     "@vercel/analytics": "^1.1.1",
     "autoprefixer": "10.4.14",
     "axios": "^1.4.0",
+    "clsx": "^2.0.0",
     "eslint": "8.42.0",
     "eslint-config-next": "13.4.5",
     "formik": "^2.4.2",

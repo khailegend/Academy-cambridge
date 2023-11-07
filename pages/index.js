@@ -9,6 +9,7 @@ export default function Index() {
   return (
     <FullWidthContainer>
       <Head>
+        <meta name='dmca-site-verification' content='ZVZ4TXh2S0tycGNoWWt4dEtqRlFjUDFod012Tk9ZWTVObVNTRzU1QktMaz01' />
         <meta name="google" content="nositelinkssearchbox" />
       </Head>
 
