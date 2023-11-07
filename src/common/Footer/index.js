@@ -202,25 +202,38 @@ export default function Footer() {
           </Box>
         </Box>
       </Box>
-      <Box className="text-left m-0 md:m-auto pb-8">
-        <Box className="whitespace-break-spaces md:whitespace-nowrap ">
-          <Typography>
-            <strong>Cơ sở 1:</strong> Vinhome Central Park - Phường 22 - Bình
-            Thạnh - TP Hồ Chí Minh
-          </Typography>
-        </Box>
-        <Box className="whitespace-break-spaces md:whitespace-nowrap ">
-          <Typography>
-            <strong>Cơ sở 2: </strong>Tháp B Lumiere Boulevard - Quận 9 - TP Hồ
-            Chí Minh
-          </Typography>
-        </Box>
-        <Box className="whitespace-break-spaces md:whitespace-nowrap ">
-          <Typography>
-            <strong>Cơ sở 3: </strong>86 Tân Cảng - Phường 25 - Bình Thạnh - TP
-            HCM
-          </Typography>
-        </Box>
+      <Box className="text-left m-0 md:m-auto flex justify-around">
+        <div className="p-10">
+          <div id="DMCA-badge" className="flex">
+            <div className="text-white p-1 text-sm" style={{left: '0px', backgroundColor: 'rgb(12, 19, 79)'}}>
+              <a href="https://www.dmca.com/r/p274g1k" title="DMCA">DMCA</a>
+            </div>
+            <div className="text-white p-1 text-sm" style={{backgroundColor: 'rgb(225, 157, 32)'}}>
+              <a href="https://www.dmca.com/r/p274g1k" title="DMCA">PROTECTED</a>
+            </div>
+          </div>
+        </div>
+
+        <div >
+          <Box className="whitespace-break-spaces md:whitespace-nowrap ">
+            <Typography>
+              <strong>Cơ sở 1:</strong> Vinhome Central Park - Phường 22 - Bình
+              Thạnh - TP Hồ Chí Minh
+            </Typography>
+          </Box>
+          <Box className="whitespace-break-spaces md:whitespace-nowrap ">
+            <Typography>
+              <strong>Cơ sở 2: </strong>Tháp B Lumiere Boulevard - Quận 9 - TP Hồ
+              Chí Minh
+            </Typography>
+          </Box>
+          <Box className="whitespace-break-spaces md:whitespace-nowrap ">
+            <Typography>
+              <strong>Cơ sở 3: </strong>86 Tân Cảng - Phường 25 - Bình Thạnh - TP
+              HCM
+            </Typography>
+          </Box>
+        </div>
       </Box>
     </Container>
   );
