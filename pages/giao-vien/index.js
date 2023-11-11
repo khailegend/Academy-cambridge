@@ -18,25 +18,25 @@ export default function TeacherPage() {
       <Box className="px-2 py-5 md:px-12 md:py-5 md:py-8">
         <Container
           maxWidth={false}
-          className="flex-wrap justify-center gap-4  md:gap-10 py-14 md:flex "
+          className="flex flex-wrap justify-center gap-2 md:gap-6 py-14"
         >
           <Card
             sx={{ maxWidth: 400 }}
-            className="py-1 px-1 my-2 md:py-4 md:px-2 bg-white rounded-3xl flex items-center justify-center"
+            className="py-1 px-1 md:py-4 md:px-2 bg-white rounded-3xl flex items-center justify-center"
           >
             <CardContent>
               <Typography
                 gutterBottom
                 component="div"
-                className="font-bold text-center lg:text-lg"
+                className="font-bold text-center lg:text-xl"
               >
                 Tuyển chọn kỹ càng và nghiêm ngặt
                 {/* <br /> */}
               </Typography>
               <Typography
-                variant="body2"
+                // variant="body2"
                 color="text.secondary"
-                className="text-center text-xs"
+                className="text-center text-xs lg:text-sm"
               >
                 Tuyển chọn giáo viên không chỉ giỏi về kiến thức chuyên môn, kỹ
                 năng giảng dạy mà còn sự nhiệt huyết và đạo đức công việc.
