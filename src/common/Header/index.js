@@ -50,16 +50,9 @@ function Header() {
               />
               <Box className="block xl:hidden">
                 <Typography
-                  sx={{ fontSize: '14px!important' }}
-                  className="font-extrabold"
+                  className="font-extrabold text-[17px]"
                 >
-                  Cambridge
-                </Typography>
-                <Typography
-                  sx={{ fontSize: '14px!important' }}
-                  className="font-extrabold"
-                >
-                  Academy
+                  Cambridge Academy
                 </Typography>
               </Box>
               <Box className="hidden xl:block">

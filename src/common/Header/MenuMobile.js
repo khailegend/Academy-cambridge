@@ -45,7 +45,7 @@ export default function MenuMobile({ pages }) {
           boxShadow: '0px 2px 4px -1px rgba(0,0,0,0.2)',
         }}
       >
-        <Box className="flex gap-2">
+        <Box className="flex gap-2 items-center">
           <Image
             src="/images/logos/Logo-CA.png"
             alt="Cambridge academy"
@@ -54,16 +54,9 @@ export default function MenuMobile({ pages }) {
           />
           <Box>
             <Typography
-              sx={{ fontSize: '14px!important' }}
-              className="font-extrabold"
+              className="font-extrabold !text-[17px]"
             >
-              Cambridge
-            </Typography>
-            <Typography
-              sx={{ fontSize: '14px!important' }}
-              className="font-extrabold"
-            >
-              Academy
+              Cambridge Academy
             </Typography>
           </Box>
         </Box>

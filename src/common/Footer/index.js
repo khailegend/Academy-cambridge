@@ -99,10 +99,10 @@ export default function Footer() {
       className="bg-[#D9D9D9] flex flex-col overflow-hidden"
       id="footer"
     >
-      <Box className="py-8 flex flex-col md:justify-around md:flex-row gap-3">
-        <Box className="flex flex-col items-center basis-2/6 md:gap-[140px]">
+      <Box className="py-8 lg:px-4 flex flex-col md:justify-around md:flex-row gap-6">
+        <Box className="flex flex-col items-center  md:gap-[140px] lg:items-start lg:gap-4" >
           <Box>
-            <Box>
+            <Box className="w-44 lg:w-56">
               <Image
                 src="/images/homepage/footer-logo-ca.png"
                 width={300}
@@ -110,70 +110,77 @@ export default function Footer() {
                 alt="Cambridge Academy"
               />
             </Box>
-            <Box className="flex gap-3 justify-center items-center">
-              <FacebookIcon />
-              <YoutubeIcon />
-              <TiktokIcon />
+            <Box className="flex gap-4 py-4 px-2 justify-center items-center">
+              <FacebookIcon className="text-sm"/>
+              <YoutubeIcon className="text-sm"/>
+              <TiktokIcon className="text-sm"/>
             </Box>
           </Box>
-          <Box className="basis-2/6">
-            <Box className="whitespace-nowrap ">
-              <Typography>
+          <Box className="">
+            <Box className="flex md:flex-col ">
+              <Typography className="text-sm">
                 <strong>Hotline:</strong>{' '}
               </Typography>
-              <Typography>034 968 2689 - 036 992 1796</Typography>
+              <Typography className="text-sm">
+                &nbsp;034 968 2689 - 036 992 1796
+              </Typography>
             </Box>
-            <Box className="whitespace-nowrap ">
-              <Typography>
+            <Box className="flex md:flex-col">
+              <Typography className="text-sm">
                 <strong>Email:</strong>
               </Typography>
-              <Typography>info@cambridge-academy.edu.vn</Typography>
+              <Typography className="text-sm">
+                &nbsp;info@cambridge-academy.edu.vn
+              </Typography>
             </Box>
           </Box>
         </Box>
-        <Box className="md:pt-20 basis-2/6">
+        <Box className="">
           <Box className="mb-8">
-            <Typography className=" font-extrabold text-3xl mb-8">
+            <Typography className="font-extrabold text-2xl mb-3">
               Khóa học
             </Typography>
-            <Box className="flex flex-col flex-wrap gap-2">
-              <Link href="/khoa-hoc/chuong-trinh-cambridge">
+            <Box className="flex flex-col flex-wrap gap-1">
+              <Link className="text-base" href="/khoa-hoc/chuong-trinh-cambridge">
                 Khóa học Chương trình Quốc tế / Cambridge
               </Link>
-              <Link href="/khoa-hoc/chung-chi-cambridge">
+              <Link className="text-base" href="/khoa-hoc/chung-chi-cambridge">
                 Chương trình Bộ Giáo dục & Đào tạo
               </Link>
-              <Link href="/khoa-hoc/chung-chi-cambridge">
+              <Link className="text-base" href="/khoa-hoc/chung-chi-cambridge">
                 Luyện thi chứng chỉ Cambridge
               </Link>
-              <Link href="/khoa-hoc/luyen-thi-dau-vao">
+              <Link className="text-base" href="/khoa-hoc/luyen-thi-dau-vao">
                 Luyện thi đầu vào trường top{' '}
               </Link>
             </Box>
           </Box>
-          <Box className="basis-2/6">
+          <Box className="">
             <Box className="mb-8">
-              <Typography className=" font-extrabold text-3xl mb-3">
+              <Typography className=" font-extrabold text-2xl mb-3">
                 Giáo viên
               </Typography>
-              <Link href="/">FAQ</Link>
+              <Link className="text-base" href="/">FAQ</Link>
             </Box>
             <Box>
-              <Typography className=" font-extrabold text-3xl">
+              <Typography className=" font-extrabold text-2xl">
                 CA NEWS
               </Typography>
             </Box>
           </Box>
         </Box>
-        <Box className="flex flex-col gap-5 items-center md:pt-20 basis-2/6">
-          <Typography className=" font-extrabold text-3xl mb-8">
+        <Box className="flex flex-col gap-2 items-center">
+          <Typography className=" font-extrabold text-2xl mb-2">
             Where learning takes flight
           </Typography>
           <CALinkButton
             href="/course"
             label="Test trình độ và học thử miễn phí"
             classStyle={`
-            hover:scale-110 ca-try-test text-white relative ca-primary-bg-color font-bold text-center rounded-[25px] transition-all duration-700  !text-2xl px-0 max-w-[289px] ${
+            hover:scale-110 ca-try-test text-white relative ca-primary-bg-color font-bold text-center rounded-[25px] transition-all duration-700 text-lg px-0 !px-6 !py-2 
+            md:max-w-[289px] 
+            lg:text-xl
+            ${
               isShow ? 'right-0' : 'right-[-100%]'
             }
             `}
@@ -183,7 +190,7 @@ export default function Footer() {
               href="/course"
               label="Đăng ký thi chứng chỉ miễn phí"
               classStyle={`
-            hover:scale-110 ca-try-test text-white relative ca-primary-bg-color font-bold text-center rounded-[25px] transition-all duration-700  !text-2xl px-0 max-w-[289px] ${
+            hover:scale-110 ca-try-test text-white relative ca-primary-bg-color font-bold text-center lg:text-xl rounded-[25px] transition-all duration-700 text-xl px-0 max-w-[289px] ${
               isShow ? 'right-0' : 'right-[-100%]'
             }
             `}
@@ -194,7 +201,7 @@ export default function Footer() {
               href="/course"
               label="Đăng ký thi chứng chỉ miễn phí"
               classStyle={`
-            hover:scale-110 ca-try-test text-white relative ca-primary-bg-color font-bold text-center rounded-[25px] transition-all duration-700  !text-2xl px-0 max-w-[289px] ${
+            hover:scale-110 ca-try-test text-white relative ca-primary-bg-color font-bold text-center rounded-[25px] transition-all duration-700  text-lg px-0 !px-8 !py-2 md:max-w-[289px] ${
               isShow ? 'right-0' : 'right-[-100%]'
             }
             `}
@@ -202,8 +209,8 @@ export default function Footer() {
           </Box>
         </Box>
       </Box>
-      <Box className="text-left m-0 md:m-auto flex justify-around">
-        <div className="p-10">
+      <Box className="flex flex-col-reverse justify-around text-left flex-d m-0 md:m-auto lg:flex-row lg:justify-start lg:gap-4 lg:m-0 lg:p-4 lg:mx-[5%]">
+        <div className="py-5 px-1">
           <div id="DMCA-badge" className="flex">
             <div className="text-white p-1 text-sm" style={{left: '0px', backgroundColor: 'rgb(12, 19, 79)'}}>
               <a href="https://www.dmca.com/r/p274g1k" title="DMCA">DMCA</a>
@@ -216,19 +223,19 @@ export default function Footer() {
 
         <div >
           <Box className="whitespace-break-spaces md:whitespace-nowrap ">
-            <Typography>
+            <Typography className="text-sm">
               <strong>Cơ sở 1:</strong> Vinhome Central Park - Phường 22 - Bình
               Thạnh - TP Hồ Chí Minh
             </Typography>
           </Box>
           <Box className="whitespace-break-spaces md:whitespace-nowrap ">
-            <Typography>
+            <Typography className="text-sm">
               <strong>Cơ sở 2: </strong>Tháp B Lumiere Boulevard - Quận 9 - TP Hồ
               Chí Minh
             </Typography>
           </Box>
           <Box className="whitespace-break-spaces md:whitespace-nowrap ">
-            <Typography>
+            <Typography className="text-sm">
               <strong>Cơ sở 3: </strong>86 Tân Cảng - Phường 25 - Bình Thạnh - TP
               HCM
             </Typography>

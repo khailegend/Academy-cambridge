@@ -18,17 +18,22 @@ export default function TeacherPage() {
       <Box className="px-2 py-5 md:px-12 md:py-5 md:py-8">
         <Container
           maxWidth={false}
-          className="flex flex-wrap justify-center gap-2 md:gap-6 py-14"
+          className="flex flex-wrap justify-center py-2 px-1 gap-2  md:gap-6 "
         >
           <Card
             sx={{ maxWidth: 400 }}
-            className="py-1 px-1 md:py-4 md:px-2 bg-white rounded-3xl flex items-center justify-center"
+            className="
+              flex justify-center bg-white rounded-3xl
+              py-1 px-1 items-center 
+              md:py-4 md:px-2 
+              lg:items-start lg:py-1 lg:px-2
+            "
           >
-            <CardContent>
+            <CardContent  className="px-2">
               <Typography
                 gutterBottom
                 component="div"
-                className="font-bold text-center lg:text-xl"
+                className="font-bold text-center text-sm lg:text-xl"
               >
                 Tuyển chọn kỹ càng và nghiêm ngặt
                 {/* <br /> */}
@@ -46,21 +51,26 @@ export default function TeacherPage() {
 
           <Card
             sx={{ maxWidth: 400 }}
-            className="py-4 px-4 bg-white rounded-3xl flex items-center justify-center"
+            className="
+              flex justify-center bg-white rounded-3xl
+              py-1 px-1 items-center 
+              md:py-4 md:px-2 
+              lg:items-start lg:py-1 lg:px-2
+            "
           >
-            <CardContent>
+            <CardContent className="px-2">
               <Typography
                 gutterBottom
                 variant="h6"
                 component="div"
-                className="font-bold text-center"
+                className="font-bold text-center text-sm lg:text-xl"
               >
                 Đào tạo và phát triển liên tục
               </Typography>
               <Typography
                 variant="body2"
                 color="text.secondary"
-                className="text-center"
+                className="text-center text-xs lg:text-sm"
               >
                 Giáo viên được đào tạo định kỳ, nâng cao kỹ năng và cập nhật
                 chương trình
@@ -70,21 +80,26 @@ export default function TeacherPage() {
 
           <Card
             sx={{ maxWidth: 400 }}
-            className="py-4 px-4 bg-white rounded-3xl flex items-center justify-center"
+            className="
+              flex justify-center bg-white rounded-3xl
+              py-1 px-1 items-center 
+              md:py-4 md:px-2 
+              lg:items-start lg:py-1 lg:px-2
+            "
           >
-            <CardContent>
+            <CardContent className="px-2">
               <Typography
                 gutterBottom
                 variant="h6"
                 component="div"
-                className="font-bold text-center"
+                className="font-bold text-center text-sm lg:text-xl"
               >
                 Đánh giá đảm bảo và chất lượng
               </Typography>
               <Typography
                 variant="body2"
                 color="text.secondary"
-                className="text-center"
+                className="text-center text-xs lg:text-sm"
               >
                 Chất lượng giáo viên được giám sát liên tục và đánh giá khách
                 quan thông quan phản hồi của phụ huynh, học viên.
@@ -95,17 +110,17 @@ export default function TeacherPage() {
 
         <Grid
           container
-          spacing={{ xs: 2, md: 3, lg: 3 }}
-          columns={{ xs: 4, sm: 5, md: 5 }}
+          spacing={{ xs: 2, md: 3, lg: 2 }}
+          columns={{ xs: 4, md: 5, lg: 6 }}
           direction="row"
           justifyContent="center"
           alignItems="center"
-          className="pt-10"
+          className="py-7 px-5"
         >
           {teachers.map((teacher, index) => (
             <Grid
               item
-              spacing={{ xs: 2, md: 1 }}
+              spacing={{ xs: 2, md: 1, lg:1 }}
               xs={2}
               sm={4}
               md={1}
@@ -113,12 +128,14 @@ export default function TeacherPage() {
               direction="row"
               justifyContent="center"
               alignItems="center"
+              
             >
               <Image
                 width={200}
                 height={200}
                 src={teacher.url}
                 alt={teacher.name}
+                className="rounded-tl-lg"
               />
             </Grid>
           ))}
