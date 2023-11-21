@@ -28,11 +28,11 @@ export default function ForwardSection({
         <Container maxWidth={isFullWidth ? false : 'lg'}>
           <Box className="flex flex-col justify-end pb-4">
             {noSubtitle ? (
-              <CASectionTitle label={subtitle} classList="text-white" />
+              <CASectionTitle label={subtitle} classList="text-red-500  text-shadow-xl shadow-[#0c134f]" />
             ) : (
-              <Typography className={`text-white`}>{subtitle}</Typography>
+              <Typography className={`text-white text-shadow-xl shadow-[#0c134f]`}>{subtitle}</Typography>
             )}
-            <CASectionTitle label={title} classList="text-white" />
+            <CASectionTitle label={title} classList="text-white text-shadow-sm shadow-[#0c134f]" />
           </Box>
         </Container>
       </Box>

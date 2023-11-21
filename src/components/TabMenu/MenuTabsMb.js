@@ -33,7 +33,7 @@ export default function MenuTabsMB({ children }) {
         onClick={handleChange}
         className="p-4 flex justify-between  bg-[#537FE745]"
       >
-        <Typography className="text-black font-extrabold opacity-100 rounded-3xl">
+        <Typography className="text-black font-extrabold font-sans opacity-100 rounded-3xl">
           {handleShowCurrentTabTitle(router)}
         </Typography>
         {checked ? <ExpandLessIcon /> : <ExpandMoreIcon />}

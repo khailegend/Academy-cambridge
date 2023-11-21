@@ -12,7 +12,7 @@ export default function RoadMap() {
   return (
     <Container maxWidth={false} className="py-8 md:md-12">
       <Box className="flex items-start flex-col">
-        <Typography className="text-2xl md:text-3xl font-extrabold leading-[60px] ">
+        <Typography className="text-2xl md:text-3xl font-extrabold leading-[45px]">
           Lộ trình học tập <span className="ca-secondary-color">chuẩn</span>
         </Typography>
         <CASectionTitle label=" của chương trình Cambridge" />

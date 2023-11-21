@@ -66,7 +66,7 @@ export default function CambridgePrograms() {
             <QuestionIcon />
           </Box>
           <Box className="max-w-888">
-            <Typography className="ca-primary-bg-color text-white font-extrabold px-4 w-fit mb-6">
+            <Typography className="ca-primary-bg-color text-white font-extrabold px-4 w-fit mb-6 mt-1 py-1 rounded-[25px]">
               Hệ song ngữ Cambridge là gì?
             </Typography>
             <Box className="flex flex-col gap-6">
@@ -91,15 +91,17 @@ export default function CambridgePrograms() {
       </Container>
       <RoadMap />
       <Box>
-        <Box className="text-center py-5 md:py-10">
+        <Box className="text-center py-5 px-4 md:py-10">
           <CASectionTitle label="Thế mạnh của Cambridge Academy là gì?" />
-          <Typography>
-            Những gia sư ưu tú cùng với kinh nghiệm nhiều năm giảng dạy chương
-            trình Cambridge,
-          </Typography>
-          <Typography>
-            chúng tôi tự tin đồng hành cùng con vươn tới những ước mơ.
-          </Typography>
+          <Box className="px-2">
+            <Typography>
+              Những gia sư ưu tú cùng với kinh nghiệm nhiều năm giảng dạy chương
+              trình Cambridge,
+            </Typography>
+            <Typography>
+              chúng tôi tự tin đồng hành cùng con vươn tới những ước mơ.
+            </Typography>
+          </Box>
         </Box>
         <Box className="flex flex-row overflow-auto lg:overflow-visible justify-start gap-4 md:gap-0 md:justify-around">
           {bookData.map((book) => {

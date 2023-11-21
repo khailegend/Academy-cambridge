@@ -15,7 +15,7 @@ export default function CambridgeCertification() {
 
         <Typography
           style={{fontFamily: 'sourceSerif'}}
-          className="text-5xl font-semibold leading-[60px]"
+          className="text-2xl font-semibold leading-[60px]"
         >
           Chinh phục{' '}
           <span className="ca-secondary-color">chứng chỉ Cambridge</span>

@@ -58,7 +58,7 @@ export default function LogoSlider({ list }) {
           </Carousel>
         </Box>
         <Box className="text-center md:text-left">
-          <CASectionTitle label="ĐỪNG BỎ QUA" classList="text-red-500" />
+          <CASectionTitle label="ĐỪNG BỎ QUA" classList="text-red-500 !text-2xl py-2" />
           <CASectionTitle label="CƠ HỘI ĐẶT CHÂN" />
           <CASectionTitle label="VÀO NGÔI TRƯỜNG MƠ ƯỚC " />
         </Box>
